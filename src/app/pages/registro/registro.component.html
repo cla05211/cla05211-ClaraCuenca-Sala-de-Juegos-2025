@@ -1,0 +1,60 @@
+<div class="main">
+    <div class="signup">
+      <div class="titulo">Registrarse</div>
+  
+      <div class="contenedor-formulario">
+        <form [formGroup]="formularioRegistro" class="formulario-registro">
+  
+          <div class="fila-inputs">
+            <div class="columna">
+              <div class="input-group">
+                <label>Correo:</label>
+                <input type="email" formControlName="correo" placeholder="Correo Electrónico" />
+                <div *ngIf="verficarCampo('correo') as error">
+                    <small>{{ error }}</small>
+                  </div>
+              </div>
+  
+              <div class="input-group">
+                <label>Contraseña:</label>
+                <input type="password" formControlName="contraseña" placeholder="Contraseña" />
+                <div *ngIf="verficarCampo('contraseña') as error">
+                    <small>{{ error }}</small>
+                </div>
+              </div>
+            </div>
+  
+            <div class="columna">
+              <div class="input-group">
+                <label>Nombre:</label>
+                <input type="text" formControlName="nombre" placeholder="Nombre" />
+                <div *ngIf="verficarCampo('nombre') as error">
+                    <small>{{ error }}</small>
+                  </div>
+              </div>
+  
+              <div class="input-group">
+                <label>Apellido:</label>
+                <input type="text" formControlName="apellido" placeholder="Apellido" />
+                <div *ngIf="verficarCampo('apellido') as error">
+                    <small>{{ error }}</small>
+                  </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="input-grande">
+            <label>Edad:</label>
+            <input type="number" formControlName="edad" placeholder="Edad" />
+            <div *ngIf="verficarCampo('edad') as error">
+                <small>{{ error }}</small>
+              </div>
+          </div>
+  
+          <button type="button" (click)="agregarUsuario()" class="boton-principal">Registrar</button>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

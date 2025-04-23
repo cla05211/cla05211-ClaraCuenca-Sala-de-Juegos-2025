@@ -1,12 +1,25 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    standalone: true,
+    selector: 'app-root',
+    imports: [RouterOutlet, RouterLink, HttpClientModule, CommonModule],
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'SalaDeJuegos';
+  router = inject(Router);
+  auth = inject(AuthService)
+
+  cerrarSesion()
+  {
+      this.auth.CerrarSesion();
+      this.router.navigate(['/login']);
+  }
 }

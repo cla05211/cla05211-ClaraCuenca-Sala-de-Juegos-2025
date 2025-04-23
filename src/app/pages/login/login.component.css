@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #ebe6c8;
+    text-align: center;
+  }
+
+.signup {
+    width: 100%;
+    max-width: 1000px; 
+  }
+
+
+.titulo {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 10px;
+    font-weight: 400;
+    color: #000000;
+  }
+
+.contenedor-formulario 
+{
+    position: relative; /* NECESARIO para que left funcione */
+    left: 140px; /* Ajustás manualmente */
+    display: flex;
+    align-items: flex-start;
+    gap: 5rem;
+
+}
+
+.accesos-rapidos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.accesos-rapidos button {
+  background-color: transparent;
+  border: 1px solid #000000;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accesos-rapidos button:hover {
+  background-color: #e3cf92;
+}
+
+.contenedor-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.formulario-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+.input-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px; /* Más ancho */
+}
+
+.input-contenedor label {
+  width: 120%;
+  background-color: #e3cf92;
+  padding: 0.5rem;
+  border: 1px solid #000000;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.input-contenedor input {
+  width: 120%;
+  padding: 0.5rem;
+  background-color: #ebe6c8; /* Fondo más claro del input */
+  border: 1px solid #000000;
+  font-size: 1rem;
+}
+
+.input-password {
+  position: relative;
+  width: 114.5%;
+}
+
+.input-password input {
+  width: 100%;
+  padding-right: 30px;
+}
+
+.input-password i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: gray;
+}
+
+.boton-principal {
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 0.75rem 3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease;
+
+  }
+.boton-principal:hover {
+  background-color: #333;
+}
+
+small 
+{
+    color: red;
+    font-size: 0.8rem;
+    min-height: 0.2rem; 
+    display: block;
+    margin-top: 5px;
+}

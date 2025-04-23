@@ -1,0 +1,45 @@
+
+<div class="main-container">
+    <div class="foto-container">
+    <div class="avatar">
+    @if (dataUsuario)
+    {
+        <img  [src]="dataUsuario.avatar_url" alt="avatar" width="100%" height="100%">
+    }
+    </div>
+</div>
+
+    <div class="info-container">
+        <div class="top-section">
+        @if (dataUsuario)
+        {
+        <header><h1>{{ dataUsuario?.name }}</h1></header>}
+        </div>
+        <div class="bottom-section">
+      <div class="left-section">
+        @if (dataUsuario)
+        {
+        <h2>Repositorios</h2>
+        <ul>
+            @for (repo of repos; track repo.id )
+            {
+             <li>{{repo.name}}</li>
+            }
+        </ul>
+        }
+      </div> 
+    
+    <div class="separator"></div>
+
+    <div class="right-section">
+      <h2>Sobre el juego</h2>
+      <p>
+        El juego será un juego de tipeo, el objetivo del juego será derrotar a un enemigo escribiendo correcta y rápidamente las palabras que el juego muestre en pantalla, antes de que se acabe el tiempo de la partida.
+        <br><br>
+        Las palabras más largas harán más daño, y las más cortas menos daño. Cualquier error al escribir reducirá el tiempo, disminuyendo las posibilidades de ganar del jugador.
+      </p>
+    </div>
+    </div>
+  </div>
+</div>
+

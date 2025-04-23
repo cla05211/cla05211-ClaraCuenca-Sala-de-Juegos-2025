@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.main-container 
+{
+    justify-content: space-between;
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    margin-right: 0;
+}
+
+.foto-container
+{
+    width: 20%;
+    justify-content: center;
+    display: flex;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  margin-top: 18%;
+}
+
+.info-container 
+{
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.top-section 
+{
+    width: 100%;
+    height: 15%;
+    box-sizing: border-box;
+    justify-content: flex-start; 
+    align-items: flex-start;
+}
+
+.bottom-section 
+{
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    flex: 1;
+}
+  
+
+.left-section, .right-section 
+{
+  flex: 1;
+}
+
+
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+header h1 
+{
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-decoration: underline 2px;
+}
+
+.left-section ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.separator {
+  border-left: 2px solid black;
+  height: auto;
+}

@@ -1,0 +1,68 @@
+/* Fuente alternativa */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    background-color: black;
+    padding: 3px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 6rem; 
+    border-radius: 0 0 10px 10px;
+    width: 70%;
+    height: 8%; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: #ebe6c8;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1.2; 
+    padding: 0px 20px 8px 20px; /* arriba, derecha, abajo, izquierda */
+}
+
+nav h2
+{
+    background: none;
+    border: none;
+    color: #ebe6c8;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1.2; 
+    padding: 0px 20px 0px 20px; /* arriba, derecha, abajo, izquierda */
+}
+
+nav button:hover {
+  text-decoration: underline;
+}
+
+.cerrarSesion {
+    position: absolute;
+    top: 7px;  
+    right: 23px; 
+    background-color: #000000;  
+    color: white;
+    padding: 6px 12px; 
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    border-radius: 22px;
+}
+
+.cerrarSesion:hover {
+    background-color: #d5536e; 
+}

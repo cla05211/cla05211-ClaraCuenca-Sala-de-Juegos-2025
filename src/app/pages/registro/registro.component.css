@@ -1,0 +1,100 @@
+.titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .contenedor-formulario {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .formulario-registro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .fila-inputs {
+    display: flex;
+    gap: 4rem;
+  }
+  
+  .columna {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .input-group {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group label {
+    width: 100%;
+    background-color: #e3cf92;
+    padding: 0.5rem;
+    border: 1px solid #000000;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #ebe6c8;
+    border: 1px solid black;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .input-grande {
+    width: 270px; /* Aproximadamente el ancho combinado de las dos columnas */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-grande label {
+    width: 100%;
+    background-color: #e3cf92;
+    padding: 0.5rem;
+    border: 1px solid #000000;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .input-grande input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #ebe6c8;
+    border: 1px solid black;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .boton-principal {
+    margin-top: 1rem;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  small 
+{
+    color: red;
+    font-size: 0.8rem;
+    min-height: 0.2rem; 
+    display: block;
+    margin-top: 5px;
+}

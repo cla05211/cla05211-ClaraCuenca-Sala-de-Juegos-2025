@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+  }
+  
+  .marco-negro {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contenido-blanco {
+    background-color: #eee5c8; 
+    position: relative;
+    width: 97%;
+    height: 94%;
+  }
