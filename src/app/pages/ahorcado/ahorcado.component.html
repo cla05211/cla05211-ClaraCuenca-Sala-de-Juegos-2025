@@ -1,0 +1,33 @@
+<h1>ahorcado!</h1>
+<button (click)="iniciarPartida()">Iniciar partida</button>
+<nav *ngIf="this.partidaFinalizada == false; else noJuega">
+<img src={{imagen}}>
+<nav *ngIf="palabraJuego != ''">
+    <div>
+        <ng-container>
+        @for (letra of letrasIngresadas; track $index) 
+        {
+            <h1>{{letra}}</h1>
+        }
+    </ng-container>
+    </div>
+    <div>
+        @for (letra of abecedario; track $index) 
+        {
+            <button (click)="determinarLetraCorrecta(letra)">{{letra}}</button>
+        }
+    </div> 
+</nav>   
+</nav>
+<ng-template #noJuega>
+    @if(victoria)
+    {
+        <h1>GANASTE!!</h1>
+    }
+    @else 
+    {
+        <h1>Perdiste!!</h1>
+    }
+</ng-template>
+
+    

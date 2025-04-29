@@ -2,6 +2,7 @@ import { Component , inject} from '@angular/core';
 import { AuthService } from '../../services/auth.service'
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink } from '@angular/router';
+import { routes } from '../../app.routes';
 
 @Component({
   selector: 'app-home',

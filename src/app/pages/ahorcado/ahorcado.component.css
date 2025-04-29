@@ -1,0 +1,10 @@
+div {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 10px; 
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
