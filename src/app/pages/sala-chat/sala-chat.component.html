@@ -1,0 +1,19 @@
+@for (chat of this.chats; track $index) 
+{
+    <div [ngClass]="{'mensajeUsuarioActual': chat.usuario === auth.usuarioActual?.email}">
+        <h2>{{chat.usuario}}</h2>
+        <h3>{{chat.mensaje}}</h3>
+        <h6>{{chat.fecha | date:'HH:mm'}}</h6>
+    </div>
+}
+<div>
+    <input
+  type="text"
+  name="mensaje"
+  [(ngModel)]="mensaje"
+  minlength="1"
+  maxlength="300"
+  size="10" />
+<button (click)="enviarMensaje()">Enviar</button>
+</div>
+

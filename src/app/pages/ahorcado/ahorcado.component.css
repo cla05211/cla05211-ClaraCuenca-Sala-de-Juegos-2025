@@ -8,3 +8,7 @@ div {
     width: 150px;
     height: 150px;
   }
+
+  .tachado {
+    text-decoration: line-through;
+  }

@@ -1,0 +1,15 @@
+img {
+    width: 170px;
+    height: 237px;
+  }
+
+  .selected {
+    background-color: darkgray;
+    color: white;
+  }
+
+  div {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 10px; 
+  }

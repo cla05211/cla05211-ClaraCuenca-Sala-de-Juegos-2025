@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { DataBaseService } from '../../services/data-base.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -9,6 +11,8 @@ import { Component } from '@angular/core';
 })
 export class AhorcadoComponent 
 {
+    db = inject(DataBaseService);
+    auth = inject(AuthService);
     partidaIniciada: boolean = false;
     palabraJuego:string = "";
     posiblesPalabras = ['CORRER', 'CAMINO', 'GUITARRA', 'VENTANA', 'RATON', 'FIESTA', 'BOSQUE', 'ARENA', 'AVION', 'CARRO', 'NADAR', 'PIEDRA', 'AMIGOS', 'REIR', 'BAILAR', 'BARCO', 'JUGAR', 'SALTAR', 'LUZ', 'VERDE']
@@ -18,11 +22,15 @@ export class AhorcadoComponent
     partidaFinalizada:boolean = false;
     victoria:boolean = false;
     imagen:string = "/juegos/ahorcado/0.png";
+    tiempoPartida:number = 0;
+    intervalo:any;
     
 
     iniciarPartida():void
     {
+        this.partidaIniciada = true;
         this.palabraJuego = this.posiblesPalabras[Math.floor(Math.random() * this.posiblesPalabras.length)];
+        console.log(this.palabraJuego);
         this.letrasIngresadas.length = 0;
         for (const letra of this.palabraJuego)
         {
@@ -32,6 +40,21 @@ export class AhorcadoComponent
         this.victoria = false;
         this.letrasErradas.length = 0;
         this.determinarImagen();
+        this.iniciarContador();
+    }
+
+    iniciarContador()
+    {
+        this.tiempoPartida = 0;
+        this.intervalo = setInterval(() => 
+        {
+            this.tiempoPartida++;
+        }, 1000); 
+    }
+
+    detenerContador(): void 
+    {
+        clearInterval(this.intervalo);
     }
 
     determinarLetraCorrecta(letraIngresada:string)
@@ -40,9 +63,6 @@ export class AhorcadoComponent
 
         for (const [index, letraCorrecta] of Array.from(this.palabraJuego).entries()) 
         {
-            console.log(index);
-            console.log("Letra que hay que llenar: " + letraCorrecta)
-            console.log("letra ingresada: "+ letraIngresada);
             if (letraIngresada == letraCorrecta)
             {
                 this.ingresarLetra(letraIngresada, index);
@@ -64,7 +84,9 @@ export class AhorcadoComponent
         if((this.letrasIngresadas.filter(letra => letra != '_')).length == this.palabraJuego.length)
         {
             this.partidaFinalizada = true;
+            this.detenerContador();
             this.victoria = true;
+            this.db.guardarPuntajeAhorcado(this.auth.usuarioActual?.email!, this.tiempoPartida, this.letrasErradas.length)
         }
     }
 
@@ -76,6 +98,7 @@ export class AhorcadoComponent
         if(this.letrasErradas.length > 6)
         {
             this.partidaFinalizada = true;
+            this.detenerContador();
         }
     }
 
@@ -83,6 +106,13 @@ export class AhorcadoComponent
     {
         var rutaBase:string = "/juegos/ahorcado/"
         this.imagen = rutaBase + (this.letrasErradas.length).toString() + ".png";    
+    }
+
+    formatearTiempo(segundos: number): string 
+    {
+        const min = Math.floor(segundos / 60);
+        const seg = segundos % 60;
+        return `${min}:${seg.toString().padStart(2, '0')}`;
     }
 
 

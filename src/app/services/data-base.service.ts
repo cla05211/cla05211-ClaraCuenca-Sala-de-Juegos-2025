@@ -18,26 +18,55 @@ export class DataBaseService {
         this.tablaUsuarios = this.supabase.from("usuarios");
     }
 
-        async listar()
-        {
-            const {data, error} = await this.supabase.from("usuarios").select("*");
-            console.log(data as Usuario[]);
-            return data as Usuario[];
-        }
-        
-        async crear(usuario: Usuario)
-        {
-            return await this.supabase.from("usuarios").insert(usuario);
-        }
+    async listarUsuarios()
+    {
+        const {data, error} = await this.supabase.from("usuarios").select("*");
+        return data as Usuario[];
+    }
+    
+    async crear(usuario: Usuario)
+    {
+        return await this.supabase.from("usuarios").insert(usuario);
+    }
 
-        async modificar(usuario:Usuario)
-        {
-            const {data, error} = await this.supabase.from("usuarios").update(usuario).eq("correo",usuario.correo);
-        }
+    async modificar(usuario:Usuario)
+    {
+        const {data, error} = await this.supabase.from("usuarios").update(usuario).eq("correo",usuario.correo);
+    }
 
-        async eliminar(correo: String)
-        {
-            const {data, error} = await this.supabase.from("usuarios").delete().eq("correo", correo);
-        }
+    async eliminar(correo: String)
+    {
+        const {data, error} = await this.supabase.from("usuarios").delete().eq("correo", correo);
+    }
+
+    async guardarPuntajeAhorcado(usuario:string,tiempo:number,numeroLetras:number)
+    {
+        return await this.supabase.from("puntajesAhorcado").insert([{
+            usuario: usuario,
+            tiempo: tiempo,
+            numeroLetrasErradas: numeroLetras}]);
+    }
+
+    async guardarPuntajeMayorMenor(usuario:string,cantidadCartasJugadas:number,porcentajeExito:number)
+    {
+        return await this.supabase.from("puntajesMayorMenor").insert([{
+            usuario: usuario,
+            cartas: cantidadCartasJugadas,
+            porcentajeExito: porcentajeExito}]);
+    }
+
+    async listarChat()
+    {
+        const {data, error} = await this.supabase.from("chat").select("*").order("created_at", { ascending: true }).limit(20);
+        return data;
+    }
+
+    async enviarChat(usuario:string, mensaje:string)
+    {
+        return await this.supabase.from("chat").insert([{
+            usuario: usuario,
+            mensaje: mensaje,
+            created_at: new Date().toISOString()}]);
+    }
 }
 

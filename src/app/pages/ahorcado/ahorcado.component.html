@@ -1,5 +1,6 @@
 <h1>ahorcado!</h1>
-<button (click)="iniciarPartida()">Iniciar partida</button>
+<nav *ngIf="this.partidaIniciada == false">
+<button (click)="iniciarPartida()">Iniciar partida</button></nav>
 <nav *ngIf="this.partidaFinalizada == false; else noJuega">
 <img src={{imagen}}>
 <nav *ngIf="palabraJuego != ''">
@@ -17,12 +18,20 @@
             <button (click)="determinarLetraCorrecta(letra)">{{letra}}</button>
         }
     </div> 
+    <h1>Letras erradas:</h1>
+    <div>
+        @for (letra of letrasErradas; track $index) 
+        {
+            <h1 class="tachado">{{letra}}</h1>
+        }
+    </div>
 </nav>   
 </nav>
 <ng-template #noJuega>
     @if(victoria)
     {
         <h1>GANASTE!!</h1>
+        <h1>Tardaste {{this.intervalo}} segundos</h1>
     }
     @else 
     {
