@@ -1,18 +1,28 @@
-<h1>Mayor o Menor!!</h1>
-<nav *ngIf="this.intentos > 0; else derrota">
-<div>
-<img src={{imagen}}>
-<img src= "/juegos/cartas/reverso.png">
-<h1>Aciertos: {{this.aciertos}}</h1>
-<h1>Intentos restantes: {{this.intentos}}</h1>
+<div class="contenedorPrincipal">
+    <div class="titulo">
+        <h1>Mayor o Menor!!</h1>
+    </div>
+    <nav *ngIf="this.intentos > 0; else derrota">
+    <div class="contenedorInterno">
+        <div class="contenedorIzquierda">
+            <img src={{imagen}}>
+            <img src= "/juegos/cartas/reverso.png">
+        </div>
+        <div class="contenedorDerecha">
+            <h1>Aciertos: {{this.aciertos}}</h1>
+            <h1>Intentos restantes: {{this.intentos}}</h1>
+            <div>
+                <button (click)="activarSeleccion('mayor')" [ngClass]="{'selected': mayorSeleccionado}" class="botonNegro">MAYOR</button>
+                <button (click)="activarSeleccion('menor')" [ngClass]="{'selected': menorSeleccionado}" class="botonNegro">MENOR</button>
+            </div>
+            <button (click)="seleccionarCartaAlAzar()" class="botonRojo">Siguiente</button>
+        </div>
+    </div>
+    </nav>
 </div>
-<div>
-    <button (click)="activarSeleccion('mayor')" [ngClass]="{'selected': mayorSeleccionado}">MAYOR</button>
-    <button (click)="activarSeleccion('menor')" [ngClass]="{'selected': menorSeleccionado}">MENOR</button>
-</div>
-<button (click)="seleccionarCartaAlAzar()">Siguiente</button>
-</nav>
 <ng-template #derrota>
-    <h1>Te has quedado sin intentos</h1>
-    <h1>Porcentaje éxito: {{this.porcentajeExito}}%</h1>
+    <div class="contenedorDerecha">
+        <h1>Te has quedado sin intentos</h1>
+        <h1>Porcentaje éxito: {{this.porcentajeExito}}%</h1>
+    </div>
 </ng-template>

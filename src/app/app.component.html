@@ -3,7 +3,11 @@
     <nav *ngIf="auth.usuarioActual == null; else logueado">
         <button routerLink="login">Login</button>
         <button routerLink="registro">Registro</button>
+        <button routerLink="home">Home</button>
     </nav>
+    <button class="salaChat" routerLink="salaChat">
+        Sala de Chat
+    </button>
     <ng-template #logueado>
         <nav>
             <button routerLink="quienSoy">Quien Soy</button>

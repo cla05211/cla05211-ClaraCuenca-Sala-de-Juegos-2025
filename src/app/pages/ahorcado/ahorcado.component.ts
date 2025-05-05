@@ -15,7 +15,11 @@ export class AhorcadoComponent
     auth = inject(AuthService);
     partidaIniciada: boolean = false;
     palabraJuego:string = "";
-    posiblesPalabras = ['CORRER', 'CAMINO', 'GUITARRA', 'VENTANA', 'RATON', 'FIESTA', 'BOSQUE', 'ARENA', 'AVION', 'CARRO', 'NADAR', 'PIEDRA', 'AMIGOS', 'REIR', 'BAILAR', 'BARCO', 'JUGAR', 'SALTAR', 'LUZ', 'VERDE']
+    categoriaPalabra:string = "";
+    posiblesCategorias = ['ANIMALES','COMIDAS','ACCIONES'];
+    animales = ["PERRO", "GATO", "LEON", "OSO", "RANA", "PEZ", "VACA", "CERDO", "CABALLO", "TIGRE"];
+    acciones = ["CORRER", "SALTAR", "COMER", "DORMIR", "LEER", "ESCRIBIR", "JUGAR", "BAILAR", "CANTAR", "HABLAR"];
+    comidas = ["PIZZA", "PAN", "ARROZ", "SOPA", "MANZANA", "HUEVO", "LECHE", "CARNE", "QUESO", "TORTA"];;
     letrasErradas:Array<string>=[];
     abecedario: Array<string> = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     letrasIngresadas: Array<string> = [];
@@ -29,7 +33,19 @@ export class AhorcadoComponent
     iniciarPartida():void
     {
         this.partidaIniciada = true;
-        this.palabraJuego = this.posiblesPalabras[Math.floor(Math.random() * this.posiblesPalabras.length)];
+        this.categoriaPalabra = this.posiblesCategorias[Math.floor(Math.random() * this.posiblesCategorias.length)];
+        if (this.categoriaPalabra == "ANIMALES")
+        {
+            this.palabraJuego = this.animales[Math.floor(Math.random() * this.animales.length)];
+        }
+        else if (this.categoriaPalabra == "COMIDAS")
+        {
+            this.palabraJuego = this.comidas[Math.floor(Math.random() * this.comidas.length)];
+        }
+        else if (this.categoriaPalabra == "ACCIONES")
+        {
+            this.palabraJuego = this.acciones[Math.floor(Math.random() * this.acciones.length)];
+        }
         console.log(this.palabraJuego);
         this.letrasIngresadas.length = 0;
         for (const letra of this.palabraJuego)
@@ -70,7 +86,7 @@ export class AhorcadoComponent
                 acerto = true;
             }
         }
-        if (!acerto)
+        if (!acerto && (!this.letrasIngresadas.includes(letraIngresada) && !this.letrasErradas.includes(letraIngresada)))
         {
             this.ahorcar(letraIngresada);
         }

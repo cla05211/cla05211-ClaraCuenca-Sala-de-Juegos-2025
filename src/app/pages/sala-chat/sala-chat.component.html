@@ -1,19 +1,30 @@
-@for (chat of this.chats; track $index) 
-{
-    <div [ngClass]="{'mensajeUsuarioActual': chat.usuario === auth.usuarioActual?.email}">
-        <h2>{{chat.usuario}}</h2>
-        <h3>{{chat.mensaje}}</h3>
-        <h6>{{chat.fecha | date:'HH:mm'}}</h6>
+<div class="contenedor">
+    <div class="mensajes" #mensajeContenedor>
+    @for (chat of this.chats(); track $index) 
+    {
+        <div [ngClass]="{
+            'mensajeUsuarioActual': chat.usuarios?.correo === auth.usuarioActual?.email,
+            'chat': chat.usuarios?.correo !== auth.usuarioActual?.email
+            }">
+            <div class="chat_info">
+                <div class="chatInfo">
+                    <div class="nombre">{{ chat.usuarios?.correo === auth.usuarioActual?.email ? 'Yo' : (chat.usuarios.nombre | titlecase) }}</div>
+                    <div class="fecha">{{ chat.created_at | date:'dd/MM/yyyy HH:mm' }}</div>
+                </div>
+                <div class="mensaje">{{ chat.mensaje }}</div>
+            </div>
+        </div>
+    }
     </div>
-}
-<div>
-    <input
-  type="text"
-  name="mensaje"
-  [(ngModel)]="mensaje"
-  minlength="1"
-  maxlength="300"
-  size="10" />
-<button (click)="enviarMensaje()">Enviar</button>
+    <div class="inputMensaje">
+        <input class="barraMensaje"
+    type="text"
+    name="mensaje"
+    [(ngModel)]="mensaje"
+    minlength="1"
+    maxlength="300"
+    size="10" />
+    <button class="botonNegro" (click)="enviarMensaje()">Enviar</button>
+    </div>
 </div>
 

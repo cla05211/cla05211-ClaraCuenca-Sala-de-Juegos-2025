@@ -1,42 +1,70 @@
-<h1>ahorcado!</h1>
-<nav *ngIf="this.partidaIniciada == false">
-<button (click)="iniciarPartida()">Iniciar partida</button></nav>
-<nav *ngIf="this.partidaFinalizada == false; else noJuega">
-<img src={{imagen}}>
-<nav *ngIf="palabraJuego != ''">
-    <div>
-        <ng-container>
-        @for (letra of letrasIngresadas; track $index) 
-        {
-            <h1>{{letra}}</h1>
-        }
-    </ng-container>
+<div class="contenedorPrincipal">
+    <div *ngIf="!this.partidaIniciada; else partidaIniciada" class="contenedorIzquierda">
+        <h1>AHORCADO</h1>
+        <button (click)="iniciarPartida()" class="botonNegro">Iniciar partida</button>
+        <h1>    </h1>
     </div>
-    <div>
-        @for (letra of abecedario; track $index) 
-        {
-            <button (click)="determinarLetraCorrecta(letra)">{{letra}}</button>
-        }
-    </div> 
-    <h1>Letras erradas:</h1>
-    <div>
-        @for (letra of letrasErradas; track $index) 
-        {
-            <h1 class="tachado">{{letra}}</h1>
-        }
+    <ng-template #partidaIniciada>
+    <div *ngIf="!this.partidaFinalizada; else partidaFinalizada">
+        <div class="contenedorInterno">
+            <div class="contenedorIzquierda">
+                <h1>AHORCADO</h1>
+                <div *ngIf="palabraJuego != ''">
+                    <div class="palabra">
+                        <div>
+                            <h1>{{this.categoriaPalabra}}</h1>
+                        </div>
+                        <div class="letras">
+                            @for (letra of letrasIngresadas; track $index) 
+                            {
+                                <h1>{{letra}}</h1>
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <div class="teclado">
+                            <div class="fila">
+                                @for (letra of abecedario.slice(0, 13); track $index) 
+                                {
+                                    <button (click)="determinarLetraCorrecta(letra)" [ngClass]="{
+                                        'letraErrada': this.letrasIngresadas.includes(letra) || this.letrasErradas.includes(letra),
+                                        'botonNegro': !this.letrasIngresadas.includes(letra) || !this.letrasErradas.includes(letra)
+                                        }">{{letra}}</button>
+                                }
+                            </div>
+                            <div class="fila">
+                                @for (letra of abecedario.slice(13); track $index) 
+                                {
+                                    <button (click)="determinarLetraCorrecta(letra)" [ngClass]="{
+                                        'letraErrada': this.letrasIngresadas.includes(letra) || this.letrasErradas.includes(letra),
+                                        'botonNegro': !this.letrasIngresadas.includes(letra) || !this.letrasErradas.includes(letra)
+                                        }">{{letra}}</button>
+                                }
+                            </div>
+                        </div>
+                    </div>   
+                </div>  
+            </div>
+            <div class="contenedorDerecha">
+                <img src={{imagen}}>
+            </div> 
+        </div>
     </div>
-</nav>   
-</nav>
-<ng-template #noJuega>
+</ng-template>
+</div>
+<ng-template #partidaFinalizada>
+    <div class="contenedorIzquierda">
     @if(victoria)
     {
         <h1>GANASTE!!</h1>
+        <h1>La palabra era {{this.palabraJuego}}</h1>
         <h1>Tardaste {{this.intervalo}} segundos</h1>
     }
     @else 
     {
         <h1>Perdiste!!</h1>
     }
+    </div>
 </ng-template>
 
     

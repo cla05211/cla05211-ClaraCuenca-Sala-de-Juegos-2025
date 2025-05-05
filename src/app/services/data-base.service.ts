@@ -57,8 +57,8 @@ export class DataBaseService {
 
     async listarChat()
     {
-        const {data, error} = await this.supabase.from("chat").select("*").order("created_at", { ascending: true }).limit(20);
-        return data;
+        const {data, error} = await this.supabase.from("chat").select("id, mensaje, created_at, usuarios(correo, nombre)");
+        return data as any[];
     }
 
     async enviarChat(usuario:string, mensaje:string)
