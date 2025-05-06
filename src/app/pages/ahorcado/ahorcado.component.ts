@@ -128,7 +128,7 @@ export class AhorcadoComponent
     {
         const min = Math.floor(segundos / 60);
         const seg = segundos % 60;
-        return `${min}:${seg.toString().padStart(2, '0')}`;
+        return `${min.toString().padStart(2, '0')}:${seg.toString().padStart(2, '0')}`;
     }
 
 

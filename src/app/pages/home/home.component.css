@@ -7,8 +7,10 @@ body {
   
   .juegos-container 
   {
+    border-bottom-left-radius: 22px;   
+    border-bottom-right-radius: 22px; 
     display: flex;
-    border: 2px solid black;
+    border: 4px solid black;
     margin-left: 100px;
     margin-right: 100px;
     background-color: #ebe6c8;
@@ -16,6 +18,7 @@ body {
   }
   
   .juegos-sidebar {
+    border-bottom-left-radius: 22px; 
     background-color: #e3cf92;
     padding: 40px;
     display: flex;
@@ -24,7 +27,7 @@ body {
     justify-content: center;
     font-size: 32px;
     font-weight: bold;
-    border-right: 2px solid black;
+    border-right: 4px solid black;
   }
   
   .juegos-sidebar span {
@@ -49,12 +52,15 @@ body {
     background-color: #ebe6c8;
     display: flex;
     flex-direction: column;
+    border-radius: 22px;    
   }
   
   .juego-titulo {
     background-color: #e3cf92;
     font-weight: bold;
     padding: 5px;
+    border-top-right-radius: 22px;  
+    border-top-left-radius: 22px;  
     border-bottom: 1px solid black;
   }
   
@@ -62,6 +68,8 @@ body {
     width: 100%;
     height: 150px;
     object-fit:fill;
+    border-bottom-right-radius: 22px;   
+    border-bottom-left-radius: 22px; 
   }
 
   .juego:hover {
@@ -70,6 +78,8 @@ body {
   
   .botonNegro 
   {
+    border-top-left-radius: 22px;   
+    border-top-right-radius: 22px; 
     background-color: #000000;  
     color: white;
     padding: 6px 465.5px; 
@@ -82,6 +92,8 @@ body {
 
 .resultados
 {
+    border-top-left-radius: 22px;   
+    border-top-right-radius: 22px; 
     display: flex;
     justify-content: center; 
     margin-top: 20px;     

@@ -9,17 +9,38 @@ export class HttpService
 {
     httpClient = inject(HttpClient);
 
-   traerDatosPokemon(idPokemon: number) 
+   traerImagenPokemon(nombrePokemon: string) 
    {
-        const observable = this.httpClient.get<any>("https://pokeapi.co/api/v2/pokemon/" + idPokemon).pipe(
+        const observable = this.httpClient.get<any>("https://pokeapi.co/api/v2/pokemon/" + nombrePokemon).pipe(
         map(data => ({
-            nombre: data.name,
             imagen: data.sprites.other['official-artwork'].front_default,
         })
         ));
 
         return observable;
    }
+
+   traerNombrePokemon(idPokemon: number) 
+   {
+        const observable = this.httpClient.get<any>("https://pokeapi.co/api/v2/pokemon/" + idPokemon).pipe(
+        map(data => ({
+            nombre: data.name,
+        })
+        ));
+
+        return observable;
+   }
+
+   traerPokemonesPrimeraGeneracion() {
+    return this.httpClient.get<any>('https://pokeapi.co/api/v2/generation/1').pipe(
+      map(data =>
+        data.pokemon_species.map((p: any) => ({
+          nombre: p.name,
+        }))
+      )
+    );
+  }
+  
 
 }
 

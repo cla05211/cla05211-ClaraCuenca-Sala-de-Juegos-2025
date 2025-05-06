@@ -1,24 +1,256 @@
-img
+@font-face 
 {
-    height: 100px;
+    font-family: 'Axolotl';
+    src: url('/fonts/Axolotl.ttf') format('truetype');
+}
+
+.rondas 
+{
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    left: 239px;
+    top: 100px;
+    width: 100px;
+    height: 400px;
+    background-color: transparent;
+}
+
+.ronda {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #2d2d2d;
+    border: 2px solid #f0f0d0;
+}
+
+.ronda.acertado {
+    background-color: #96df93;
+}
+
+.ronda.fallado {
+    background-color: #cf5132;
+}
+
+.contenedorPrincipal 
+{   
+    margin: 0 auto;
+    margin-top: 40px;
+    background-image: url('/juegos/preguntados/pokemonFondo.png');
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    width: 760px;
+    height: 431px;
+    border: 3px solid black;
+    position: relative;
+}
+
+.imagenInicio 
+{   
+    margin: 0 auto;
+    margin-top: 40px;
+    background-image: url('/juegos/preguntados/pokemonFondo2.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+    width: 760px;
+    height: 431px;
+    border: 3px solid black;
+    position: relative;
 }
 
 
-.botonNegro 
+img
 {
-    background-color: black;   
-    color: #ebe6c8;            
+    height: 170px;
+}
+
+.imagen
+{
+    position: absolute;
+    top: 30px;
+    left: 440px;
+}
+
+.contenedorBotones 
+{
+    position: absolute;
+    left: 170px;
+    bottom: 15px;
+    font-family: 'Axolotl';
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 0px; 
+    column-gap: 40px;
+}
+
+.botonOpciones
+{
+    display: flex;            
+    align-items: center;       
+    justify-content: center;    
+    font-family: 'Axolotl';
+    background-color: transparent;           
+    color: #f0f0d0;
     border: none;             
-    padding: 4px 8px;       
+    padding: 0px 2px;       
     margin: 1px;              
-    font-size: 18px;           
-    font-family: Arial, sans-serif; 
+    font-size: 50px;           
     cursor: pointer;        
     border-radius: 0;         
 }
 
-
 .selected 
 {
-    background-color: #333;    
+    color: #333;    
+}
+
+.probarSuerte
+{
+    position: absolute;
+    left: 560px;
+    bottom: 22px;
+}
+
+.probarSuerte button 
+{
+    border-radius: 15px;    
+    display: flex;            
+    align-items: center;       
+    justify-content: center;    
+    font-family: 'Axolotl';
+    font-size: 40px;
+    background-color: transparent;
+    color: #f0f0d0;
+    background-color: transparent;
+    border: none;
+}
+
+.probarSuerte button:hover
+{
+    color:#333
+}
+
+.nombrePokemon
+{
+    left:220px;
+    top:28px;
+    color:#333;
+    position:absolute;
+    font-family: 'Axolotl';
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.respuestaCorrecta
+{
+    position: absolute;
+    left: 128px;
+    top:0px;
+    color:#96df93;
+    font-family: 'Axolotl';
+    font-size: 200px;
+    text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+.respuestaIncorrecta
+{
+    position: absolute;
+    left: 140px;
+    top:0px;
+    color:#cf5132;
+    font-family: 'Axolotl';
+    font-size: 160px;
+    text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+.iniciarPartida
+{
+    position: relative;
+    margin-left: 180px;
+    margin-top: 300px;
+    display: flex;            
+    align-items: center;       
+    justify-content: center;    
+    font-family: 'Axolotl';
+    font-size: 100px;
+    background-color: transparent;
+    color: #ef3131;
+    border: none;
+    text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+.iniciarPartida:hover
+{
+    color:#232323
+}
+
+.resultadosPartida
+{
+    position: absolute;
+    left: 80px;
+    top: 310px;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    gap: 2px;
+    align-items: center;
+    width: 600px
+}
+.resultadosPartida h1 
+{
+    margin: 0;
+    line-height: 1.1; 
+    font-size: 40px; 
+    font-family: 'Axolotl';
+    letter-spacing: 2px;
+    color: #ef3131;
+    text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+.reintentar
+{
+    position: relative;
+    margin-left: 440px;
+    margin-top: 80px;
+    display: flex;            
+    align-items: center;       
+    justify-content: center;    
+    font-family: 'Axolotl';
+    font-size: 50px;
+    background-color: transparent;
+    color: #ef3131;
+    border: none;
+    text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+.reintentar:hover
+{
+    color:#232323
 }

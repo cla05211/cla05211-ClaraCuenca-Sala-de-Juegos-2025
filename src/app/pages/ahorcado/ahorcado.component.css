@@ -4,7 +4,7 @@
     src: url('/fonts/Skrawk-Serif.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-  }
+}
   
   body 
   {
@@ -17,7 +17,7 @@
     font-size: 20px;
     border: 10px solid black;
     margin: 48px 60px 0 60px;
-    background-color: #ebe6c8;
+    background-color: #fffcee;
     padding: 0;
 }
 

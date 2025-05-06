@@ -1,46 +1,58 @@
 <div>
         <div *ngIf="!this.partidaEnCurso; else partidaIniciada">
+            <div class="imagenInicio">
             <div *ngIf="this.respuestaCorrecta == null; else yaRespondio">
-                <button (click)="iniciarPartida()">Iniciar Partida</button>
+                <button (click)="iniciarPartida()" class="iniciarPartida">Iniciar Partida</button>
             </div>
             <ng-template #yaRespondio>
-                @if(respuestaCorrecta)
-                {
-                    <h1>Correcto!!</h1>
-                }
-                @else 
-                {
-                    <h1>Incorrecto!!</h1>
-                    <h1>El pokemon era {{this.pokemonCorrecto?.nombre | titlecase}}</h1>
-                }
-                @if (this.rondas > 0)
-                {
-                    <button class="botonNegro" (click)="iniciarPartida()">Siguiente</button>
-                }
-                @else 
-                {
-                    <h1>Adivinaste {{this.rondasGanadas}} pokemones correctamente de 10</h1>
-                }
+                <div class="resultadosPartida">
+                <h1>Adivinaste {{this.rondasGanadas}} pokemones correctamente de 10</h1>
+                <h1>Tiempo: {{this.formatearTiempo(this.tiempoPartida)}}</h1>
+                </div>
+                <button class="reintentar" (click)="reintentar()">Reintentar</button>
             </ng-template>
+            </div>
         </div>
         <ng-template #partidaIniciada>
-            <div>
-                <h1>Rondas restantes: {{this.rondas}}</h1>
-                <h1>¿Quién es este pokemón?</h1>
-                <img src={{this.pokemonCorrecto!.imagen}}>
+            <div class="rondas">
+                <div 
+                    *ngFor="let estado of rondasEstados"
+                    class="ronda"
+                    [ngClass]="estado">
+              </div>
             </div>
-            <div>
-                <button
-                    *ngFor="let pokemon of pokemonesPosibles; let i = index"
-                    (click)="this.pokemonSeleccionadoIndex = i"
-                    [ngClass]="{ 'selected': pokemonSeleccionadoIndex == i }"
-                    class="botonNegro"
-                    >
-                    {{pokemon.nombre | titlecase}}
-                </button>
-            </div>
-            <div>
-                <button (click)="comprobarResultado()">Probar Suerte</button>
+            <div class="contenedorPrincipal">
+                <h1 class="nombrePokemon">{{this.nombreMostrado| titlecase}}</h1> 
+                <div class="imagen"> 
+                    @if(this.pokemonCorrecto?.imagen)
+                    {
+                        <img #pokemonImagen src={{this.pokemonCorrecto!.imagen}}>
+                    }
+                </div>
+                <div class="contenedorBotones">
+                    <button
+                        *ngFor="let pokemon of pokemonesRonda; let i = index"
+                        (click)="this.pokemonSeleccionadoIndex = i"
+                        [ngClass]="{ 'selected': pokemonSeleccionadoIndex == i }"
+                        class="botonOpciones"
+                        >
+                        {{pokemon | titlecase}}
+                    </button>
+                </div>
+                <div class="probarSuerte">
+                    <button (click)="comprobarResultado()">Probar<br>Suerte</button>
+                </div>
+                @if (this.nombreMostrado != "¿?")
+                {
+                    @if (this.respuestaCorrecta)
+                    {
+                        <h1 class="respuestaCorrecta">Correcto!</h1>    
+                    }
+                    @else 
+                    {
+                        <h1 class="respuestaIncorrecta">Incorrecto!</h1>    
+                    }
+                }           
             </div>
         </ng-template>
 </div>
