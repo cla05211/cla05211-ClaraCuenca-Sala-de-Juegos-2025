@@ -1,0 +1,31 @@
+<div class="botones">
+    <button (click)="this.tablaElegida = 'puntajesPreguntados'; this.obtenerValores()" [ngClass]="{'selected': tablaElegida === 'puntajesPreguntados'}" 
+    class="botonNegro">Preguntados</button>
+    <button (click)="this.tablaElegida = 'puntajesAhorcado'; this.obtenerValores()" [ngClass]="{'selected': tablaElegida === 'puntajesAhorcado'}" 
+    class="botonNegro">Ahorcado</button>
+    <button (click)="this.tablaElegida = 'puntajesMayorMenor'; this.obtenerValores()" [ngClass]="{'selected': tablaElegida === 'puntajesMayorMenor'}" 
+    class="botonNegro">Mayor o Menor</button>
+</div>
+
+<div class="contenedor">
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>{{ this.clave1 }}</th>
+            <th>{{ this.clave2 }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fila of dataTabla; let i = index">
+            <td>{{ fila.usuario }}</td>
+            <td>{{ fila.fecha | date:'dd/MM/yyyy HH:mm'}}</td>
+            <td>{{ valor1[i] }}</td>
+            <td>{{ valor2[i] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

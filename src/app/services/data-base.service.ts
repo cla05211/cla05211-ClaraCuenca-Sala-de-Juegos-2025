@@ -44,7 +44,9 @@ export class DataBaseService {
         return await this.supabase.from("puntajesAhorcado").insert([{
             usuario: usuario,
             tiempo: tiempo,
-            numeroLetrasErradas: numeroLetras}]);
+            numeroLetrasErradas: numeroLetras,
+            fecha: new Date().toISOString()
+        }]);
     }
 
     async guardarPuntajeMayorMenor(usuario:string,cantidadCartasJugadas:number,porcentajeExito:number)
@@ -52,7 +54,25 @@ export class DataBaseService {
         return await this.supabase.from("puntajesMayorMenor").insert([{
             usuario: usuario,
             cartas: cantidadCartasJugadas,
-            porcentajeExito: porcentajeExito}]);
+            porcentajeExito: porcentajeExito, 
+            fecha: new Date().toISOString()
+        }]);
+    }
+
+    async guardarPuntajePreguntados(usuario:string,pokemonesAdivinados:number, tiempo:number)
+    {
+        return await this.supabase.from("puntajesPreguntados").insert([{
+            fecha: new Date().toISOString(),
+            pokemonesAdivinados: pokemonesAdivinados,
+            usuario: usuario,
+            tiempo: tiempo,
+        }]);
+    }
+
+    async listarPuntajes(tabla:string)
+    {
+        const {data, error} = await this.supabase.from(tabla).select("*");
+        return data as any[];
     }
 
     async listarChat()
@@ -68,5 +88,7 @@ export class DataBaseService {
             mensaje: mensaje,
             created_at: new Date().toISOString()}]);
     }
+
+
 }
 

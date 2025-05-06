@@ -1,4 +1,7 @@
 <router-outlet></router-outlet>
+<div class="resultados">
+    <button routerLink="/juegos/resultados" class="botonNegro">Resultados</button>
+</div>
 <div class="juegos-container">
     <div class="juegos-sidebar">
         <span>J</span>
@@ -16,8 +19,10 @@
         </a>
       </div>
       <div class="juego">
+        <a routerLink="/juegos/preguntados">
         <div class="juego-titulo">Preguntados</div>
-        <img src="/juegos/preguntados.png" alt="Preguntados">
+        <img src="juegos/preguntados.png" alt="Preguntados">
+        </a>
       </div>
       <div class="juego">
         <a routerLink="/juegos/mayoromenor">

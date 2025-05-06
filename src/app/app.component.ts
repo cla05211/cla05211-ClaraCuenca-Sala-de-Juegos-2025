@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { HttpService } from './services/http.service';
 
 @Component({
     standalone: true,
@@ -16,6 +17,7 @@ export class AppComponent {
   title = 'SalaDeJuegos';
   router = inject(Router);
   auth = inject(AuthService)
+  httpService = inject(HttpService);
 
   cerrarSesion()
   {

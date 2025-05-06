@@ -1,0 +1,24 @@
+img
+{
+    height: 100px;
+}
+
+
+.botonNegro 
+{
+    background-color: black;   
+    color: #ebe6c8;            
+    border: none;             
+    padding: 4px 8px;       
+    margin: 1px;              
+    font-size: 18px;           
+    font-family: Arial, sans-serif; 
+    cursor: pointer;        
+    border-radius: 0;         
+}
+
+
+.selected 
+{
+    background-color: #333;    
+}

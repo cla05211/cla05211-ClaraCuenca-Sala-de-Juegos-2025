@@ -1,0 +1,46 @@
+<div>
+        <div *ngIf="!this.partidaEnCurso; else partidaIniciada">
+            <div *ngIf="this.respuestaCorrecta == null; else yaRespondio">
+                <button (click)="iniciarPartida()">Iniciar Partida</button>
+            </div>
+            <ng-template #yaRespondio>
+                @if(respuestaCorrecta)
+                {
+                    <h1>Correcto!!</h1>
+                }
+                @else 
+                {
+                    <h1>Incorrecto!!</h1>
+                    <h1>El pokemon era {{this.pokemonCorrecto?.nombre | titlecase}}</h1>
+                }
+                @if (this.rondas > 0)
+                {
+                    <button class="botonNegro" (click)="iniciarPartida()">Siguiente</button>
+                }
+                @else 
+                {
+                    <h1>Adivinaste {{this.rondasGanadas}} pokemones correctamente de 10</h1>
+                }
+            </ng-template>
+        </div>
+        <ng-template #partidaIniciada>
+            <div>
+                <h1>Rondas restantes: {{this.rondas}}</h1>
+                <h1>¿Quién es este pokemón?</h1>
+                <img src={{this.pokemonCorrecto!.imagen}}>
+            </div>
+            <div>
+                <button
+                    *ngFor="let pokemon of pokemonesPosibles; let i = index"
+                    (click)="this.pokemonSeleccionadoIndex = i"
+                    [ngClass]="{ 'selected': pokemonSeleccionadoIndex == i }"
+                    class="botonNegro"
+                    >
+                    {{pokemon.nombre | titlecase}}
+                </button>
+            </div>
+            <div>
+                <button (click)="comprobarResultado()">Probar Suerte</button>
+            </div>
+        </ng-template>
+</div>

@@ -1,0 +1,72 @@
+.contenedor {
+    margin: 30px 10px;
+    background-color: #ebe6c8;
+    color: #000000;
+    border: 2px solid rgb(51, 51, 51);
+    font-family: Arial, sans-serif;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .tabla-scroll {
+    max-height: 700px;
+    min-height: 400px;
+    overflow-y: auto;
+    background-color: #fff9da3c;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background-color: rgba(190, 172, 161, 0.9);
+    z-index: 2;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(51, 51, 51);
+    border-bottom: 1px solid #ccc;
+  }
+  
+  th {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  td {
+    font-weight: 400;
+  }
+
+.botonNegro 
+{
+    background-color: #000000;  
+    color: white;
+    padding: 6px 12px; 
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-size: 18px;
+    border-radius: 22px;    
+}
+
+.selected 
+{
+    background-color: #333;    
+}
+
+.botones
+{
+    display: flex;
+    justify-content: center; 
+    margin-top: 25px;     
+    gap: 100px;
+}
