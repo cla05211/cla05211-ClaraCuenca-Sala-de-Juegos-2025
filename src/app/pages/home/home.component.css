@@ -78,11 +78,13 @@ body {
   
   .botonNegro 
   {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
     border-top-left-radius: 22px;   
     border-top-right-radius: 22px; 
     background-color: #000000;  
     color: white;
-    padding: 6px 465.5px; 
+    padding: 6px 459px; 
     border: none;
     cursor: pointer;
     letter-spacing: 1px;
@@ -92,6 +94,7 @@ body {
 
 .resultados
 {
+
     border-top-left-radius: 22px;   
     border-top-right-radius: 22px; 
     display: flex;
