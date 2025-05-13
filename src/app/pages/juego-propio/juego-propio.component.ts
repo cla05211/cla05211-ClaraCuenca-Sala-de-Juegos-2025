@@ -193,7 +193,7 @@ export class JuegoPropioComponent
             }
             i++;
         })
-        this.vidaEnemigo -= daño;   
+        this.vidaEnemigo = Math.max(0, this.vidaEnemigo - daño);
         this.determinarVictoria();
     }
 
@@ -230,6 +230,7 @@ export class JuegoPropioComponent
     {
         if (this.vidaEnemigo < 1)
         {
+            console.log(this.vidaEnemigo);
             clearInterval(this.intervalo);
             clearInterval(this.intervaloPalabras);
             this.palabrasEnPantalla = [];

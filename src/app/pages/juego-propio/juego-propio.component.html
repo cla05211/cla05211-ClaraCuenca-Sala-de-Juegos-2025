@@ -42,7 +42,7 @@
             <div class="enemigo">
                 <img 
                     [src]="imagenEnemigo"
-                    [ngClass]="{ 'desaparecer': vidaEnemigo === 0 }">
+                    [ngClass]="{ 'desaparecer': vidaEnemigo <= 1 }">
             </div>
             <div class="zonaPalabras">
                 <h1
