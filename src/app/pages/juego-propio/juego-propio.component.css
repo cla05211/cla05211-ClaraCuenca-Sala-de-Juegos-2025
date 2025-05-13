@@ -12,6 +12,52 @@
     position: relative;
 }
 
+.transparente
+{
+    margin-top: 5px;
+    margin-left: 2px;
+    background-color: transparent;
+    border: none
+}
+
+.transparente:hover
+{
+    background-color: #00000035;
+}
+
+.contenedorTutorial
+{
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url('/juegos/juegoPropio/tutorial.png');
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    width: 1200px;
+    height: 480px;
+    border: 3px solid rgb(0, 0, 0);
+    position: relative;
+}
+
+.contenedorInstrucciones
+{
+    margin-top: 80px;
+    margin-left: 40px;
+    height: 70%;
+    width: 65%;
+}
+
+
+.contenedorInstrucciones h1
+{
+    text-align: center;
+    font-family: 'Poor Richard';
+    font-size: 8;
+    letter-spacing: 2px;
+    color: #000000;
+    animation: aparecer 0.8s ease-in-out forwards;
+}
+
 .victoriaConteiner
 {
     margin: 0 auto;
@@ -77,7 +123,7 @@
 
 .infoAciertos
 {
-    left: 10%;
+    left: 17%;
     margin: auto;
     margin-top:330px;
     font-size: 40px;
@@ -93,7 +139,7 @@
 
 .infoErrores
 {
-    left: 13%;
+    left: 22%;
     margin: auto + 20px;
     margin-top:400px;
     font-size: 40px;
@@ -172,7 +218,7 @@
 
 @keyframes aparecer {
   0% { opacity: 0; transform: scale(0.9); color: #cb3333;}
-  100% { opacity: 1; transform: scale(1); color: #262626a5;}
+  100% { opacity: 1; transform: scale(1); color: #262626e4;}
 }
 
 .zonaPalabras .palabraRoja
@@ -214,5 +260,5 @@
 }
 
 .titilar {
-    color: transparent !important;
+    color: black !important;
 }

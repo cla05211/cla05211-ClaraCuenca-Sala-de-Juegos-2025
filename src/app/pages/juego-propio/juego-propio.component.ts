@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { DataBaseService } from '../../services/data-base.service';
 import { AuthService } from '../../services/auth.service';
 import { ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import { SonidoService } from '../../services/sonido.service';
 
 @Component({
   selector: 'app-juego-propio',
@@ -27,6 +28,7 @@ export class JuegoPropioComponent
         }
     }
 
+    sonido = inject(SonidoService);
     db = inject(DataBaseService);
     auth = inject(AuthService);
     partidaEnCurso = false;
@@ -46,9 +48,12 @@ export class JuegoPropioComponent
     tiempoRestantePalabras:number = 8;
     intervalo: any;
     intervaloPalabras: any;
+    tutorial = false;
+    pasoTutorial: number = 1;
 
     elegirPalabrasPantalla()
     {
+        this.letrasIngresadas = [];
         this.palabrasEnPantalla = [];
         const posiciones = 
         [
@@ -76,15 +81,39 @@ export class JuegoPropioComponent
         this.iniciarContadorPalabras();
     }
 
-    ngOnInit() 
+    iniciarPartida()
     {
-        this.elegirPalabrasPantalla();
-        this.iniciarContadorPalabras();
+        console.log(this.tutorial);
+
+        if (!this.tutorial)
+        {
+            this.partidaEnCurso = true;
+            this.elegirPalabrasPantalla();
+            this.iniciarContadorPalabras();
+            this.iniciarContador();
+            this.palabrasIngresadas = ["","","","","",""];
+        }
+    }
+
+    async ngOnInit()
+    {
+        this.tutorial = !(await this.db.determinarSiYaJugo(this.auth.usuarioActual?.email!));
+    }
+
+    //Para que no siga sonando la alarma si va al home o a otro lado
+    ngOnDestroy() {
+        
+        clearInterval(this.intervaloPalabras);
+        clearInterval(this.intervalo);
+        
     }
 
     reiniciarPartida()
     {
+        this.palabrasIngresadas = ["","","","","",""];
+        this.elegirPalabrasPantalla();
         clearInterval(this.intervalo);
+        clearInterval(this.intervaloPalabras);
         this.partidaEnCurso = true;
         this.vidaEnemigo = 100;
         this.tiempoPartida = 0;
@@ -92,6 +121,7 @@ export class JuegoPropioComponent
         this.palabrasAcertadas = 0;
         this.letrasErradas = 0;
         this.iniciarContador();
+        this.iniciarContadorPalabras();
     }
 
     obtenerPosicion(palabra: string) 
@@ -155,7 +185,7 @@ export class JuegoPropioComponent
             if (this.letrasIngresadas.join('') == palabra.texto)
             {
                 this.palabrasIngresadas[i] = "";
-                daño =+ 10;
+                daño += 1.5 * palabra.texto.length;
                 this.palabrasAcertadas += 1;
                 this.cambiarImagenEnemigo();
                 this.remplazarPalabra(palabra.texto);
@@ -163,18 +193,7 @@ export class JuegoPropioComponent
             }
             i++;
         })
-
-        if (daño > 20)
-            {
-                var golpes= daño /10;
-                for (let i = 0; i < golpes -1; i++) 
-                {
-                    this.cambiarImagenEnemigo();
-                }
-                
-            }
-        this.vidaEnemigo -= daño;
-
+        this.vidaEnemigo -= daño;   
         this.determinarVictoria();
     }
 
@@ -212,7 +231,9 @@ export class JuegoPropioComponent
         if (this.vidaEnemigo < 1)
         {
             clearInterval(this.intervalo);
+            clearInterval(this.intervaloPalabras);
             this.palabrasEnPantalla = [];
+            this.palabrasIngresadas = ["","","","","",""];
             await this.esperar(1500);
             this.victoria = true;
             this.db.guardarPuntajeJuegoPropio(this.auth.usuarioActual?.email!, this.letrasErradas, this.palabrasAcertadas);
@@ -242,8 +263,8 @@ export class JuegoPropioComponent
 
     get anchoBarraVida(): string 
     {
-    const porcentaje = this.vidaEnemigo;
-    return `${porcentaje}%`;
+        const porcentaje = Math.max(0, this.vidaEnemigo); 
+        return `${porcentaje}%`;
     }
 
     esperar(milisegundos: number) 
@@ -262,6 +283,7 @@ export class JuegoPropioComponent
             if (this.tiempoRestante <= 0) 
             {
                 clearInterval(this.intervalo);
+                clearInterval(this.intervaloPalabras);
                 if (!this.victoria) 
                 {
                     await this.esperar(1500);
@@ -284,6 +306,7 @@ export class JuegoPropioComponent
 
             if (this.tiempoRestantePalabras == 1 || this.tiempoRestantePalabras == 2)
             {
+                this.sonido.reproducirSonido('/sonidos/beep.mp3')
                 this.palabrasElementos.forEach((elementRef) => {
                 elementRef.nativeElement.classList.add('titilar');
 
@@ -295,10 +318,22 @@ export class JuegoPropioComponent
 
             if (this.tiempoRestantePalabras <= 0) 
             {
+                this.sonido.reproducirSonido('/sonidos/beep.mp3',0.5);
                 this.animacionPalabras = true;
                 clearInterval(this.intervaloPalabras);
                 this.elegirPalabrasPantalla();
+                this.palabrasIngresadas = ["","","","","",""];
             }
         }, 1000);
+    }
+
+    siguientePasoTutorial()
+    {
+        this.pasoTutorial ++;
+        if (this.pasoTutorial == 5)
+        {
+            this.tutorial = false;
+            this.iniciarPartida();
+        }
     }
 }

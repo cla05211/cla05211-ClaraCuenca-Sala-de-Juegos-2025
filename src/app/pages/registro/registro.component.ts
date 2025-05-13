@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Usuario } from '../../classes/usuarios';
 import { DataBaseService } from '../../services/data-base.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -26,8 +27,8 @@ export class RegistroComponent {
     formularioRegistro = new FormGroup
     ({
         correo: new FormControl('',[Validators.required,Validators.email]),
-        contraseña: new FormControl('',[Validators.required, Validators.minLength(5),Validators.pattern('^[A-Za-z0-9ÁÉÍÓÚáéíóúÑñÜü]+$')]),
-        edad: new FormControl('',[Validators.required, Validators.maxLength(3),Validators.pattern('^[0-9]*$')]),
+        contraseña: new FormControl('',[Validators.required, Validators.minLength(6),Validators.pattern('^[A-Za-z0-9ÁÉÍÓÚáéíóúÑñÜü]+$')]),
+        edad: new FormControl('',[Validators.required, Validators.max(99), Validators.min(5), Validators.pattern('^[0-9]*$')]),
         nombre: new FormControl('',[Validators.required, Validators.minLength(3),Validators.pattern('^[A-Za-zÁÉÍÓÚáéíóúÑñÜü]+$')]),
         apellido: new FormControl('',[Validators.required, Validators.minLength(3),Validators.pattern('^[A-Za-zÁÉÍÓÚáéíóúÑñÜü]+$')]),
     })
@@ -43,6 +44,8 @@ export class RegistroComponent {
           if (control.hasError('email')) {mensaje = 'Debe ser un correo válido.'};
           if (control.hasError('minlength')) {mensaje = 'El dato ingresado es muy corto.'};
           if (control.hasError('maxlength')) {mensaje = 'El dato ingresado es muy largo.'};
+          if (control.hasError('max')) {mensaje = 'Ingrese una edad válida'};
+          if (control.hasError('min')) {mensaje = 'Minimo de edad 5 años'};
           if (control.hasError('pattern')) {mensaje = 'Formato inválido.'};
         }
         return mensaje;
@@ -56,7 +59,6 @@ export class RegistroComponent {
         }
         else
         {
-            this.agregarUsuarioBD();
             this.registrar();
         }
     }
@@ -69,16 +71,37 @@ export class RegistroComponent {
 
         const {data, error} = await this.auth.CrearCuenta(correo, contraseña);
         console.log('ERROR:', error); 
+        
         if (error) 
         {
-            if (error.status === 409 || error.message.includes('User already registered')) {
-              alert("Usuario ya registrado");
-            } else {
-              alert("Ocurrió otro error: " + error.message);
+            const mensaje = error.message.toLowerCase();
+
+            if (
+                error.status === 409 ||
+                mensaje.includes('already registered') ||
+                mensaje.includes('already exists')
+            ) 
+            {   
+                Swal.fire({
+                icon: 'warning',
+                title: 'Usuario ya registrado',
+                text: 'El correo ingresado ya está en uso.',
+                confirmButtonText: 'Entendido',
+                });
+            } 
+            else 
+            {
+                Swal.fire({
+                icon: 'error',
+                title: 'Ocurrió un error',
+                text: error.message,
+                confirmButtonText: 'Cerrar',
+                });
             }
-        } 
+        }
         else 
         {
+            this.agregarUsuarioBD();
             await this.auth.IniciarSesion(correo, contraseña);
             this.router.navigate(['/home']);
         }

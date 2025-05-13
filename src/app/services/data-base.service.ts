@@ -99,6 +99,24 @@ export class DataBaseService {
             created_at: new Date().toISOString()}]);
     }
 
+    async determinarSiYaJugo(correo:string, ):Promise<boolean>
+    {
+        var jugo = false;
 
+        const {data, error} = await this.supabase.from("puntajesJuegoPropio").select("usuario");
+
+        if (data != null) 
+        {
+            for (const item of data) 
+            {
+                if (item.usuario === correo) 
+                {
+                    jugo = true;
+                }
+            }
+        }
+        
+        return jugo;
+    }
 }
 

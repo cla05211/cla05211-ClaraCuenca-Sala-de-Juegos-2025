@@ -1,7 +1,31 @@
-<div class="contenedorPrincipal">
+<div *ngIf="tutorial; else sabeJugar">
+    <div class="contenedorTutorial">
+        <button class="transparente"(click)="siguientePasoTutorial()">
+
+            <span class="material-icons">arrow_forward</span>
+        </button>
+        <div class="contenedorInstrucciones">
+            <h1>DERROTA A TU ENEMIGO ANTES DE<br>QUEDARTE SIN TIEMPO.</h1>
+            @if (pasoTutorial > 1)
+            {
+                <h1>ESCRIBE LAS PALABRAS DE LA PANTALLA ANTES DE QUE DESAPAREZCAN.</h1>
+            }
+            @if (pasoTutorial > 2)
+            {
+                <h1>¡CUIDADO CUANDO ESCUCHES LA ALARMA!<br>LAS PALABRAS ESTAN A PUNTO DE CAMBIAR</h1>
+            }
+            @if (pasoTutorial > 3)
+            {
+                <h1>CUALQUIER ERROR TE COSTARA 2 SEGUNDOS</h1>
+            }
+        </div>
+    </div>
+</div>
+<ng-template #sabeJugar>
+    <div class="contenedorPrincipal">
     <div *ngIf="!partidaEnCurso; else Jugando">
         <div class="victoriaConteiner">
-            <button (click)="partidaEnCurso = true; this.iniciarContador()" class="botonMedieval">Iniciar partida</button>
+            <button (click)="iniciarPartida()" class="botonMedieval">Iniciar partida</button>
         </div>
     </div>
     <ng-template #Jugando>
@@ -13,7 +37,7 @@
             <div class="jugador">
                 <img 
                     [src]="imagenJugador"
-                    [ngClass]="{ 'desaparecer': tiempoRestante === 0}">
+                    [ngClass]="{ 'desaparecer': tiempoRestante <= 0}">
             </div>
             <div class="enemigo">
                 <img 
@@ -63,4 +87,4 @@
         }
     </ng-template>
 </div>
-
+</ng-template>
