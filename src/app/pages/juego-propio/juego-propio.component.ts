@@ -138,6 +138,7 @@ export class JuegoPropioComponent
             }
             if (!acertoAlgunaLetra)
             {
+                this.cambiarImagenJugador();
                 this.letrasErradas += 1;
                 this.descontarTiempo();
                 this.letrasIngresadas = [];
@@ -184,7 +185,16 @@ export class JuegoPropioComponent
         setTimeout(() => {
         this.imagenEnemigo = "/juegos/juegoPropio/enemigo.png";
         }, 200);
-  }
+    } 
+
+    cambiarImagenJugador()
+    {
+        this.imagenJugador = '/juegos/juegoPropio/jugador_daño.png';
+
+        setTimeout(() => {
+        this.imagenJugador = "/juegos/juegoPropio/jugador.png";
+        }, 200);
+    } 
 
   descontarTiempo()
   {
