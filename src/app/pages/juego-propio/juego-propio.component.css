@@ -1,0 +1,218 @@
+.contenedorPrincipal
+{
+    margin: 0 auto;
+    margin-top: 10px;
+    background-image: url('/juegos/juegoPropio/fondo.png');
+    background-size: cover;
+    background-position: center;
+    padding: 0;
+    width: 1200px;
+    height: 480px;
+    border: 3px solid black;
+    position: relative;
+}
+
+.victoriaConteiner
+{
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 0;
+    width: 800px;
+    height: 400px;
+    position: relative;
+}
+
+.botonMedieval
+{
+    position: absolute;
+    left: 18%;
+    top: 20%;
+    background-color: transparent;
+    color: rgb(23, 23, 23);             
+    border: none;             
+    padding: 4px 8px;       
+    margin: 1px;              
+    font-size: 80px;           
+  font-family: 'Poor Richard', sans-serif;
+    cursor: pointer;        
+    border-radius: 2px;         
+}
+
+.botonMedieval2
+{
+    position: absolute;
+    top:50%;
+    left:30%;
+    background-color: transparent;
+    color: rgb(23, 23, 23);             
+    border: none;             
+    padding: 4px 8px;       
+    margin: 1px;              
+    font-size: 40px;           
+  font-family: 'Poor Richard', sans-serif;
+    cursor: pointer;        
+    border-radius: 2px;         
+}
+
+.botonMedieval:hover,
+.botonMedieval2:hover {
+    background-color: #d1cbbdcb; 
+}
+
+.victoria
+{
+    left: 10%;
+    margin: auto;
+    margin-top:40px;
+    font-size: 125px;
+  font-family: 'Poor Richard', sans-serif;
+    position: absolute;
+    font-weight: bold;
+    color: #000000;
+    white-space: nowrap;
+    user-select: none;
+    animation: aparecer 0.5s ease-in-out forwards;
+    letter-spacing: 10px;
+}
+
+.infoAciertos
+{
+    left: 10%;
+    margin: auto;
+    margin-top:330px;
+    font-size: 40px;
+  font-family: 'Poor Richard', sans-serif;
+    position: absolute;
+    font-weight: bold;
+    color: #000000ad;
+    white-space: nowrap;
+    user-select: none;
+    animation: aparecer 0.5s ease-in-out forwards;
+    letter-spacing: 10px;
+}
+
+.infoErrores
+{
+    left: 13%;
+    margin: auto + 20px;
+    margin-top:400px;
+    font-size: 40px;
+  font-family: 'Poor Richard', sans-serif;
+    position: absolute;
+    font-weight: bold;
+    color: #000000ad;
+    white-space: nowrap;
+    user-select: none;
+    animation: aparecer 0.5s ease-in-out forwards;
+    letter-spacing: 10px;
+}
+.contenedorPrincipal img
+{
+    size: 80%;
+}
+
+.enemigo {
+  position: absolute;  
+  top: 7px;
+  left: 665px;
+}
+
+.enemigo img
+{
+    transform: scale(0.85);
+}
+
+.enemigo img.desaparecer
+{
+    animation: desaparecer 1s ease-in-out forwards;;
+}
+
+.jugador img.desaparecer
+{
+    animation: desaparecer 1s ease-in-out forwards;;
+}
+
+@keyframes desaparecer {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.jugador {
+  position: absolute;  
+  top: 150px;
+  left: 10px;
+}
+
+.jugador img
+{
+    transform: scale(0.8);
+}
+
+.zonaPalabras {
+  position: absolute;  
+  top: 10px;
+  left: 625px;
+  width: 48%;
+  height: 35%;
+  overflow: hidden;
+}
+
+.zonaPalabras .palabra 
+{
+    font-size: 25px;
+  font-family: 'Poor Richard', sans-serif;
+    position: absolute;
+    font-weight: bold;
+    color: #262626a5;
+    white-space: nowrap;
+    user-select: none;
+    opacity: 0;
+    animation: aparecer 0.2s ease-in-out forwards;
+}
+
+@keyframes aparecer {
+  0% { opacity: 0; transform: scale(0.9); color: #cb3333;}
+  100% { opacity: 1; transform: scale(1); color: #262626a5;}
+}
+
+.zonaPalabras .palabraRoja
+{
+    font-size: 25px;
+  font-family: 'Poor Richard', sans-serif;
+    position: absolute;
+    font-weight: bold;
+    color: #cb3333;
+    white-space: nowrap;
+    user-select: none;
+}
+
+  
+.barra-vida-contenedor {
+    position: absolute;
+    left: 67%;
+    top:94%;
+    width: 250px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: transparent
+}
+
+.barra-vida {
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0);
+  transition: width 0.3s ease;
+}
+
+.contador{
+    margin-left: 10px;
+    margin-top: 5px;
+  font-size: 30px;
+  font-family: 'Poor Richard', sans-serif;
+  font-weight: bold;
+}
+
+.titilar {
+    color: transparent !important;
+}

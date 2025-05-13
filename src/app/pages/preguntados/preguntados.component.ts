@@ -94,8 +94,6 @@ export class PreguntadosComponent
             var idPokemon = this.elegirIdPokemon();
             this.pokemonesRonda.push(this.pokemonesPrimerGeneracion[idPokemon].nombre); 
         }
-
-        console.log(this.pokemonesRonda);
     }
 
     elegirIdPokemon(): number 

@@ -1,1 +1,66 @@
-<p>juego-propio works!</p>
+<div class="contenedorPrincipal">
+    <div *ngIf="!partidaEnCurso; else Jugando">
+        <div class="victoriaConteiner">
+            <button (click)="partidaEnCurso = true; this.iniciarContador()" class="botonMedieval">Iniciar partida</button>
+        </div>
+    </div>
+    <ng-template #Jugando>
+        <div *ngIf="victoria == null; else juegoFinalizado">
+            <div class="contador" #contadorRef>{{tiempoRestante}}</div>
+            <div class="barra-vida-contenedor">
+            <div class="barra-vida" [style.width]="anchoBarraVida"></div>
+            </div>
+            <div class="jugador">
+                <img 
+                    [src]="imagenJugador"
+                    [ngClass]="{ 'desaparecer': tiempoRestante === 0}">
+            </div>
+            <div class="enemigo">
+                <img 
+                    [src]="imagenEnemigo"
+                    [ngClass]="{ 'desaparecer': vidaEnemigo === 0 }">
+            </div>
+            <div class="zonaPalabras">
+                <h1
+                class="palabra"
+                *ngFor="let palabra of palabrasEnPantalla; trackBy: trackById"
+                [ngClass]="{ 'aparecer': animacionPalabras }"
+                [ngStyle]="{ top: palabra.top + 'px', left: palabra.left + 'px' }"
+                #palabrasRef
+                >
+                {{ palabra.texto | titlecase }}
+                </h1>
+            </div>
+            <div class="zonaPalabras">
+                <h1
+                class="palabraRoja"
+                *ngFor="let palabra of palabrasIngresadas; let i = index"
+                [ngStyle]="{
+                    top: palabrasEnPantalla[i]?.top + 'px',
+                    left: palabrasEnPantalla[i]?.left + 'px'
+                }">
+                {{ palabra | titlecase }}
+                </h1>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #juegoFinalizado>
+        @if (victoria)
+        {
+            <div class="victoriaConteiner">
+                <h1 class="victoria">VICTORIA</h1>
+                <h1 class="infoAciertos">Palabras ingresadas: {{palabrasAcertadas}}</h1>
+                <h1 class="infoErrores">Errores de Tipeo: {{letrasErradas}}</h1>
+                <button class="botonMedieval2" (click)="reiniciarPartida()">Volver a Jugar</button>
+            </div>
+        }
+        @if (!victoria)
+        {
+            <div class="victoriaConteiner">
+                <h1 class="victoria">DERROTA</h1>
+                <button class="botonMedieval2" (click)="reiniciarPartida()">Volver a Intentar</button>
+            </div>
+        }
+    </ng-template>
+</div>
+

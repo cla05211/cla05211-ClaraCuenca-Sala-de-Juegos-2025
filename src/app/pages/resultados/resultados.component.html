@@ -5,6 +5,8 @@
     class="botonNegro">Ahorcado</button>
     <button (click)="this.tablaElegida = 'puntajesMayorMenor'; this.obtenerValores()" [ngClass]="{'selected': tablaElegida === 'puntajesMayorMenor'}" 
     class="botonNegro">Mayor o Menor</button>
+    <button (click)="this.tablaElegida = 'puntajesJuegoPropio'; this.obtenerValores()" [ngClass]="{'selected': tablaElegida === 'puntajesJuegoPropio'}" 
+    class="botonNegro">Typo</button>
 </div>
 
 <div class="contenedor">

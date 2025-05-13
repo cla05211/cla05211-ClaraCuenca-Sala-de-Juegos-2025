@@ -59,6 +59,16 @@ export class DataBaseService {
         }]);
     }
 
+    async guardarPuntajeJuegoPropio(usuario:string,letrasErradas:number,palabrasEscritas:number)
+    {
+        return await this.supabase.from("puntajesJuegoPropio").insert([{
+            usuario: usuario,
+            letrasErradas: letrasErradas,
+            palabrasEscritas: palabrasEscritas, 
+            fecha: new Date().toISOString()
+        }]);
+    }
+
     async guardarPuntajePreguntados(usuario:string,pokemonesAdivinados:number, tiempo:number)
     {
         return await this.supabase.from("puntajesPreguntados").insert([{

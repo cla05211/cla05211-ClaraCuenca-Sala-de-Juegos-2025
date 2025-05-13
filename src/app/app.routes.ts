@@ -10,4 +10,5 @@ export const routes: Routes =
     {path: "juegos", loadChildren: ()=> import ('./juegos.routes') .then ((archivo) => archivo.routes), canActivate: [logueadoGuard]},
     {path: "quienSoy", loadComponent: ()=> import ('./pages/quien-soy/quien-soy.component') .then ((archivo) => archivo.QuienSoyComponent)},
     {path: "salaChat", loadComponent: ()=> import ('./pages/sala-chat/sala-chat.component') .then ((archivo) => archivo.SalaChatComponent), canActivate:[logueadoGuard]},
+    {path: "leon", loadComponent: ()=> import ('./pages/leon/quien-es-quien.component') .then ((archivo) => archivo.QuienEsQuienComponent)}
 ];

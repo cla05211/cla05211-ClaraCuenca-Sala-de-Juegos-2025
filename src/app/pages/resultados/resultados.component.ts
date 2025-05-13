@@ -48,6 +48,13 @@ export class ResultadosComponent
             this.valor1 = this.dataTabla.map((fila: any) => fila.cartas);
             this.valor2 = this.dataTabla.map((fila: any) => fila.porcentajeExito + '%');
         }
+        else if (this.tablaElegida == "puntajesJuegoPropio")
+        {
+            this.clave1 = "Letras Erradas";
+            this.clave2 = "Palabras Tipeadas"
+            this.valor1 = this.dataTabla.map((fila: any) => fila.letrasErradas);
+            this.valor2 = this.dataTabla.map((fila: any) => fila.palabrasEscritas);
+        }
     }
 
     formatearTiempo(segundos: number): string 
