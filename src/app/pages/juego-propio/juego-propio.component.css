@@ -41,18 +41,18 @@
 
 .contenedorInstrucciones
 {
-    margin-top: 80px;
+    margin-top: 100px;
     margin-left: 40px;
     height: 70%;
     width: 65%;
 }
 
 
-.contenedorInstrucciones h1
+.contenedorInstrucciones h2
 {
     text-align: center;
     font-family: 'Poor Richard';
-    font-size: 8;
+    font-size: 18x;
     letter-spacing: 2px;
     color: #000000;
     animation: aparecer 0.8s ease-in-out forwards;
