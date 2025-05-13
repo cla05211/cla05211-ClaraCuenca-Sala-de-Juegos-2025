@@ -22,7 +22,7 @@ export class JuegoPropioComponent
         const tecla = event.key;
 
         if (/^[a-zA-ZñÑ]$/.test(tecla)) {
-        this.letrasIngresadas.push(tecla);
+        this.letrasIngresadas.push(tecla.toLowerCase());
         this.analizarIngresoLetras();
         }
     }
