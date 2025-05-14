@@ -136,7 +136,7 @@ border-bottom: 1px solid #d3d3d35e;
 
 
 
-@media screen and (min-width: 1921px) {
+@media screen and (max-width: 1920px) {
 
   .mensajes {
     height: 55vh; 
