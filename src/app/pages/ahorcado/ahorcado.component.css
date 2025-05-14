@@ -22,7 +22,7 @@ body
     margin: 4vh 5vw 15vh 5vw;
     background-color: #fffcee;
     padding: 0;
-    min-height:76vh;
+    min-height:4vh;
 }
 
 .contenedorInterno 
@@ -40,6 +40,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2.5vh 2vw;
 }
 
 .contenedorDerecha img {
