@@ -133,3 +133,56 @@ border-bottom: 1px solid #d3d3d35e;
 .mensajes::-webkit-scrollbar-thumb:hover {
     background-color: #888;
 }
+
+
+
+@media screen and (min-width: 1921px) {
+
+  .mensajes {
+    height: 55vh; 
+  }
+
+  .mensaje {
+    font-size: 22px;
+  }
+  
+  .nombre {
+    font-size: 18px;
+  }
+
+  .chat, .mensajeUsuarioActual {
+    padding: 15px 0px;
+  }
+
+  .contenedor {
+    margin: 18px 15px 0px 15px;
+  }
+  
+  .inputMensaje {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .botonNegro {
+    padding: 6px 0px;
+    font-size: 20px;
+  }
+
+@media screen and (min-width: 2560px) {
+  .mensajes {
+    height: 65vh; 
+  }
+  
+  .mensaje {
+    font-size: 24px;
+  }
+  
+  .nombre {
+    font-size: 20px;
+  }
+  
+  .fecha {
+    font-size: 12px;
+  }
+}
+}
