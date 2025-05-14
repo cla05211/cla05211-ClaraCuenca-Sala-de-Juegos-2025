@@ -6,19 +6,23 @@
     font-style: normal;
 }
   
-  body 
-  {
+body 
+{
     font-family: 'Skrawk Serif', serif;
-  }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .contenedorPrincipal 
 {
     font-family: 'Skrawk Serif', serif;
-    font-size: 20px;
-    border: 10px solid black;
-    margin: 48px 60px 0 60px;
+    font-size: clamp(16px, 2vw, 20px);
+    border: clamp(6px, 0.8vw, 10px) solid black;
+    margin: 4vh 5vw 0 5vw;
     background-color: #fffcee;
     padding: 0;
+    min-height: 80vh;
 }
 
 .contenedorInterno 
@@ -26,33 +30,41 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    min-height: 80vh;
 }
 
 .contenedorDerecha
 {
     flex: 1;
-    border-left: 10px solid black;
+    border-left: clamp(6px, 0.8vw, 10px) solid black;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.contenedorDerecha img {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
 }
 
 .contenedorIzquierda
 {
     flex: 1;
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
+    padding: 2vh 2vw;
 }
 
 .palabra
 {
     display: flex;
     flex-direction: column;
-    border: 4px solid black;
-    width: 300px;       
-    height: 150px;
-    margin: 16px auto;
+    border: clamp(2px, 0.4vw, 4px) solid black;
+    width: clamp(250px, 80%, 400px);
+    height: clamp(120px, 20vh, 200px);
+    margin: 2vh auto;
 }
 
 .palabra > div 
@@ -64,64 +76,81 @@
 .palabra > div:first-child 
 {
     font-family: 'Skrawk Serif', serif;
-    font-size: 15px;
+    font-size: clamp(12px, 1.5vw, 18px);
     flex: 1; 
-    min-height: 50px;
+    min-height: 30%;
     border-bottom: 2px solid black;
     display: flex;       
     align-items: center; 
-
 }
 
 .palabra > div:last-child 
 {
-    min-height: 80px;
+    min-height: 60%;
     flex: 2; 
+    display: flex;
+    align-items: center;
 }
 
 .letras
 {
     display: flex;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.letras h1 {
+    font-size: clamp(18px, 2.5vw, 28px);
+    margin: 0.2em;
 }
 
 .teclado {
-    margin-top: 32px;
+    margin-top: 4vh;
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
+    width: 100%;
 }
 
 .fila {
     display: flex;
-    justify-content: center; 
-    margin-bottom: 10px;     
+    justify-content: center;
+    margin-bottom: 1vh;
+    flex-wrap: wrap;
 }
 
 .botonNegro {
     background-color: black;   
     color: #ebe6c8;            
     border: none;             
-    padding: 4px 8px;       
-    margin: 1px;              
-    font-size: 18px;           
+    padding: clamp(4px, 0.6vh, 8px) clamp(6px, 0.8vw, 10px);
+    margin: 0.2vh 0.2vw;
+    font-size: clamp(14px, 1.8vw, 20px);
     font-family: Arial, sans-serif; 
     cursor: pointer;        
-    border-radius: 0;         
+    border-radius: 0;
+    min-width: 2.2em;
 }
 
 .letraErrada {
     background-color: rgb(236, 71, 71);   
-    color: ebe6c8;            
+    color: #ebe6c8;            
     border: none;             
-    padding: 4px 8px;       
-    margin: 1px;              
-    font-size: 18px;           
+    padding: clamp(4px, 0.6vh, 8px) clamp(6px, 0.8vw, 10px);
+    margin: 0.2vh 0.2vw;
+    font-size: clamp(14px, 1.8vw, 20px);
     font-family: Arial, sans-serif; 
     cursor: pointer;        
-    border-radius: 0;      
+    border-radius: 0;
+    min-width: 2.2em;
 }
 
 .botonNegro:hover {
     background-color: #333;    
+}
+
+h1 {
+    font-size: clamp(20px, 3vw, 32px);
+    text-align: center;
 }

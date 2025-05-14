@@ -1,104 +1,100 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: black;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .juegos-container 
-  {
-    border-bottom-left-radius: 22px;   
-    border-bottom-right-radius: 22px; 
-    display: flex;
-    border: 4px solid black;
-    margin-left: 100px;
-    margin-right: 100px;
-    background-color: #ebe6c8;
-    padding: 0px;
-  }
-  
-  .juegos-sidebar {
-    border-bottom-left-radius: 22px; 
-    background-color: #e3cf92;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    font-weight: bold;
-    border-right: 4px solid black;
-  }
-  
-  .juegos-sidebar span {
-    margin: 5px 0;
-  }
-  
-  .juegos-grid 
-  {
-   display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: start;     
-    padding: 20px;   
-  }
-  
-  .juego {
-    width: 350px;
-    height: 184px;
-    border: 1px solid black;
-    text-align: center;
-    background-color: #ebe6c8;
-    display: flex;
-    flex-direction: column;
-    border-radius: 22px;    
-  }
-  
-  .juego-titulo {
-    background-color: #e3cf92;
-    font-weight: bold;
-    padding: 5px;
-    border-top-right-radius: 22px;  
-    border-top-left-radius: 22px;  
-    border-bottom: 1px solid black;
-  }
-  
-  .juego img {
-    width: 100%;
-    height: 150px;
-    object-fit:fill;
-    border-bottom-right-radius: 22px;   
-    border-bottom-left-radius: 22px; 
-  }
+  font-family: 'Poppins', sans-serif;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
 
-  .juego:hover {
-    transform: scale(1.05);
-  }
-  
-  .botonNegro 
-  {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    border-top-left-radius: 22px;   
-    border-top-right-radius: 22px; 
-    background-color: #000000;  
-    color: white;
-    padding: 6px 459px; 
-    border: none;
-    cursor: pointer;
-    letter-spacing: 1px;
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
+.juegos-container {
+  border-bottom-left-radius: 2vh;
+  border-bottom-right-radius: 2vh;
+  display: flex;
+  border: 0.4vh solid black;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  background-color: #ebe6c8;
+  padding: 0;
+}
 
-.resultados
-{
+.juegos-sidebar {
+  border-bottom-left-radius: 2vh;
+  background-color: #e3cf92;
+  padding: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh;
+  font-weight: bold;
+  border-right: 0.4vh solid black;
+}
 
-    border-top-left-radius: 22px;   
-    border-top-right-radius: 22px; 
-    display: flex;
-    justify-content: center; 
-    margin-top: 20px;     
-    margin-bottom: 0;
+.juegos-sidebar span {
+  margin: 1vh 0;
+}
+
+.juegos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vh;
+  justify-content: center;
+  align-items: start;
+  padding: 2vh;
+}
+
+.juego {
+  width: 30vw;
+  height: 26vh;
+  border: 0.1vh solid black;
+  text-align: center;
+  background-color: #ebe6c8;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2vh;
+  transition: transform 0.3s ease;
+}
+
+.juego-titulo {
+  background-color: #e3cf92;
+  font-weight: bold;
+  padding: 1vh;
+  font-size: 2vh;
+  border-top-right-radius: 2vh;
+  border-top-left-radius: 2vh;
+  border-bottom: 0.1vh solid black;
+}
+
+.juego img {
+  width: 100%;
+  height: 20vh;
+  object-fit: cover;
+  border-bottom-right-radius: 2vh;
+  border-bottom-left-radius: 2vh;
+}
+
+.juego:hover {
+  transform: scale(1.05);
+}
+
+.botonNegro {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  background-color: #000000;
+  color: white;
+  padding: 1.5vh 10vw;
+  border: none;
+  cursor: pointer;
+  font-size: 2vh;
+  letter-spacing: 0.2vh;
+}
+
+.resultados {
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 3vh;
+  margin-bottom: 0;
 }

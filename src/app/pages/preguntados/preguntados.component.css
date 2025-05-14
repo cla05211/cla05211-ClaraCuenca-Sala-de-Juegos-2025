@@ -12,19 +12,19 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    left: 239px;
-    top: 100px;
-    width: 100px;
-    height: 400px;
+    left: 13%;
+    top: 14%;
+    width: 10%;
+    height: 80%;
     background-color: transparent;
 }
 
 .ronda {
-    width: 25px;
-    height: 25px;
+    width: 2.2vw;
+    height: 2.2vw;
     border-radius: 50%;
     background-color: #2d2d2d;
-    border: 2px solid #f0f0d0;
+    border: 0.15vw solid #f0f0d0;
 }
 
 .ronda.acertado {
@@ -38,56 +38,61 @@
 .contenedorPrincipal 
 {   
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 4vh;
     background-image: url('/juegos/preguntados/pokemonFondo.png');
     background-size: cover;
     background-position: center;
     padding: 0;
-    width: 760px;
-    height: 431px;
-    border: 3px solid black;
+    width: 80vw;
+    max-width: 900px;
+    height: 36vw;
+    max-height: 510px;
+    border: 0.3vw solid black;
     position: relative;
 }
 
 .imagenInicio 
 {   
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 4vh;
     background-image: url('/juegos/preguntados/pokemonFondo2.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     padding: 0;
-    width: 760px;
-    height: 431px;
-    border: 3px solid black;
+    width: 80vw;
+    max-width: 900px;
+    height: 36vw;
+    max-height: 510px;
+    border: 0.3vw solid black;
     position: relative;
 }
 
-
 img
 {
-    height: 170px;
+    height: 30%;
+    max-height: 180px;
 }
 
 .imagen
 {
     position: absolute;
-    top: 30px;
-    left: 440px;
+    top: 7%;
+    right: 20%;
 }
 
 .contenedorBotones 
 {
     position: absolute;
-    left: 170px;
-    bottom: 15px;
+    left: 24%;
+    bottom: 2%;
     font-family: 'Axolotl';
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    row-gap: 0px; 
-    column-gap: 40px;
+    row-gap: 0; 
+    column-gap: 5%;
+    width: 40%;
 }
 
 .botonOpciones
@@ -99,9 +104,9 @@ img
     background-color: transparent;           
     color: #f0f0d0;
     border: none;             
-    padding: 0px 2px;       
-    margin: 1px;              
-    font-size: 50px;           
+    padding: 0 0.5%;       
+    margin: 0.2%;              
+    font-size: clamp(24px, 5vw, 50px);           
     cursor: pointer;        
     border-radius: 0;         
 }
@@ -114,21 +119,20 @@ img
 .probarSuerte
 {
     position: absolute;
-    left: 560px;
-    bottom: 22px;
+    right: 16%;
+    bottom: 3%;
 }
 
 .probarSuerte button 
 {
-    border-radius: 15px;    
+    border-radius: 1.5vw;    
     display: flex;            
     align-items: center;       
     justify-content: center;    
     font-family: 'Axolotl';
-    font-size: 40px;
+    font-size: clamp(20px, 4vw, 40px);
     background-color: transparent;
     color: #f0f0d0;
-    background-color: transparent;
     border: none;
 }
 
@@ -139,118 +143,119 @@ img
 
 .nombrePokemon
 {
-    left:220px;
-    top:28px;
-    color:#333;
-    position:absolute;
+    left: 28%;
+    top: 3%;
+    color: #333;
+    position: absolute;
     font-family: 'Axolotl';
-    font-size: 30px;
-    letter-spacing: 2px;
+    font-size: clamp(16px, 3vw, 30px);
+    letter-spacing: 0.2vw;
 }
 
 .respuestaCorrecta
 {
     position: absolute;
-    left: 128px;
-    top:0px;
-    color:#96df93;
+    left: 22%;
+    top: 0;
+    color: #96df93;
     font-family: 'Axolotl';
-    font-size: 200px;
+    font-size: clamp(80px, 20vw, 200px);
     text-shadow: 
-    -1px -1px 0 black,  
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
+    -0.1vw -0.1vw 0 black,  
+     0.1vw -0.1vw 0 black,
+    -0.1vw  0.1vw 0 black,
+     0.1vw  0.1vw 0 black;
 }
 
 .respuestaIncorrecta
 {
     position: absolute;
-    left: 140px;
-    top:0px;
-    color:#cf5132;
+    left: 24%;
+    top: 0;
+    color: #cf5132;
     font-family: 'Axolotl';
-    font-size: 160px;
+    font-size: clamp(60px, 16vw, 160px);
     text-shadow: 
-    -1px -1px 0 black,  
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
+    -0.1vw -0.1vw 0 black,  
+     0.1vw -0.1vw 0 black,
+    -0.1vw  0.1vw 0 black,
+     0.1vw  0.1vw 0 black;
 }
 
 .iniciarPartida
 {
     position: relative;
-    margin-left: 180px;
-    margin-top: 300px;
+    margin-left: 26%;
+    margin-top: 36%;
     display: flex;            
     align-items: center;       
     justify-content: center;    
     font-family: 'Axolotl';
-    font-size: 100px;
+    font-size: clamp(40px, 10vw, 100px);
     background-color: transparent;
     color: #ef3131;
     border: none;
     text-shadow: 
-    -1px -1px 0 black,  
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
+    -0.1vw -0.1vw 0 black,  
+     0.1vw -0.1vw 0 black,
+    -0.1vw  0.1vw 0 black,
+     0.1vw  0.1vw 0 black;
 }
 
 .iniciarPartida:hover
 {
-    color:#232323
+    color: #232323;
 }
 
 .resultadosPartida
 {
     position: absolute;
-    left: 80px;
-    top: 310px;
+    left: 10%;
+    top: 72%;
     display: flex;
     flex-direction: column;
-    height: 50px;
-    gap: 2px;
+    height: 10%;
+    gap: 2%;
     align-items: center;
-    width: 600px
+    width: 80%;
 }
+
 .resultadosPartida h1 
 {
     margin: 0;
     line-height: 1.1; 
-    font-size: 40px; 
+    font-size: clamp(20px, 4vw, 40px); 
     font-family: 'Axolotl';
-    letter-spacing: 2px;
+    letter-spacing: 0.2vw;
     color: #ef3131;
     text-shadow: 
-    -1px -1px 0 black,  
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
+    -0.1vw -0.1vw 0 black,  
+     0.1vw -0.1vw 0 black,
+    -0.1vw  0.1vw 0 black,
+     0.1vw  0.1vw 0 black;
 }
 
 .reintentar
 {
     position: relative;
-    margin-left: 440px;
-    margin-top: 80px;
+    margin-left: 58%;
+    margin-top: 10%;
     display: flex;            
     align-items: center;       
     justify-content: center;    
     font-family: 'Axolotl';
-    font-size: 50px;
+    font-size: clamp(25px, 5vw, 50px);
     background-color: transparent;
     color: #ef3131;
     border: none;
     text-shadow: 
-    -1px -1px 0 black,  
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
+    -0.1vw -0.1vw 0 black,  
+     0.1vw -0.1vw 0 black,
+    -0.1vw  0.1vw 0 black,
+     0.1vw  0.1vw 0 black;
 }
 
 .reintentar:hover
 {
-    color:#232323
+    color: #232323;
 }

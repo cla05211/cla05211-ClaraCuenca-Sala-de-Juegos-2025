@@ -1,264 +1,305 @@
 .contenedorPrincipal
 {
-    margin: 0 auto;
-    margin-top: 10px;
-    background-image: url('/juegos/juegoPropio/fondo.png');
-    background-size: cover;
-    background-position: center;
-    padding: 0;
-    width: 1200px;
-    height: 480px;
-    border: 3px solid black;
-    position: relative;
+margin: 0 auto;
+margin-top: 5vh;
+background-image: url('/juegos/juegoPropio/fondo.png');
+background-size: cover;
+background-position: center;
+padding: 0;
+width: 80vw;
+height: 75vh;
+border: 0.3vh solid black;
+position: relative;
+max-width: 1200px;
 }
-
 .transparente
 {
-    margin-top: 5px;
-    margin-left: 2px;
-    background-color: transparent;
-    border: none
+margin-top: 0.5vh;
+margin-left: 0.15vw;
+background-color: transparent;
+border: none
 }
-
 .transparente:hover
 {
-    background-color: #00000035;
+background-color: #00000035;
 }
-
 .contenedorTutorial
 {
-    margin: 0 auto;
-    margin-top: 15px;
-    background-image: url('/juegos/juegoPropio/tutorial.png');
-    background-size: cover;
-    background-position: center;
-    padding: 0;
-    width: 1200px;
-    height: 480px;
-    border: 3px solid rgb(0, 0, 0);
-    position: relative;
+margin: 0 auto;
+margin-top: 5vh;
+background-image: url('/juegos/juegoPropio/tutorial.png');
+background-size: cover;
+background-position: center;
+padding: 0;
+width: 80vw;
+height: 75vh;
+border: 0.3vh solid rgb(0, 0, 0);
+position: relative;
+max-width: 1200px;
 }
-
 .contenedorInstrucciones
 {
-    margin-top: 100px;
-    margin-left: 40px;
-    height: 70%;
-    width: 65%;
+margin-top: 14vh;
+margin-left: 3vw;
+height: 60%;
+width: 65%;
 }
-
-
 .contenedorInstrucciones h2
 {
-    text-align: center;
-    font-family: 'Poor Richard';
-    font-size: 18x;
-    letter-spacing: 2px;
-    color: #000000;
-    animation: aparecer 0.8s ease-in-out forwards;
+text-align: center;
+font-family: 'Poor Richard';
+font-size: 1.43rem;
+letter-spacing: 0.125rem;
+color: #000000;
+animation: aparecer 0.8s ease-in-out forwards;
 }
-
 .victoriaConteiner
 {
-    margin: 0 auto;
-    margin-top: 10px;
-    padding: 0;
-    width: 800px;
-    height: 400px;
-    position: relative;
+margin: 0 auto;
+margin-top: 1.5vh;
+padding: 0;
+width: 60vw;
+height: 62.5vh;
+position: relative;
+max-width: 800px;
 }
-
 .botonMedieval
 {
-    position: absolute;
-    left: 18%;
-    top: 20%;
-    background-color: transparent;
-    color: rgb(23, 23, 23);             
-    border: none;             
-    padding: 4px 8px;       
-    margin: 1px;              
-    font-size: 80px;           
-  font-family: 'Poor Richard', sans-serif;
-    cursor: pointer;        
-    border-radius: 2px;         
+position: absolute;
+left: 18%;
+top: 20%;
+background-color: transparent;
+color: rgb(23, 23, 23);
+border: none;
+padding: 0.5vh 0.6vw;
+margin: 0.1vh;
+font-size: 5rem;
+font-family: 'Poor Richard', sans-serif;
+cursor: pointer;
+border-radius: 0.125rem;
 }
-
 .botonMedieval2
 {
-    position: absolute;
-    top:50%;
-    left:30%;
-    background-color: transparent;
-    color: rgb(23, 23, 23);             
-    border: none;             
-    padding: 4px 8px;       
-    margin: 1px;              
-    font-size: 40px;           
-  font-family: 'Poor Richard', sans-serif;
-    cursor: pointer;        
-    border-radius: 2px;         
+position: absolute;
+top: 50%;
+left: 36%;
+background-color: transparent;
+color: rgb(23, 23, 23);
+border: none;
+padding: 0.5vh 0.6vw;
+margin: 0.1vh;
+font-size: 2.5rem;
+font-family: 'Poor Richard', sans-serif;
+cursor: pointer;
+border-radius: 0.125rem;
 }
-
 .botonMedieval:hover,
 .botonMedieval2:hover {
-    background-color: #d1cbbdcb; 
+background-color: #d1cbbdcb;
 }
-
 .victoria
 {
-    left: 10%;
-    margin: auto;
-    margin-top:40px;
-    font-size: 125px;
-  font-family: 'Poor Richard', sans-serif;
-    position: absolute;
-    font-weight: bold;
-    color: #000000;
-    white-space: nowrap;
-    user-select: none;
-    animation: aparecer 0.5s ease-in-out forwards;
-    letter-spacing: 10px;
+left: 10%;
+margin: auto;
+margin-top: 6vh;
+font-size: 7.8rem;
+font-family: 'Poor Richard', sans-serif;
+position: absolute;
+font-weight: bold;
+color: #000000;
+white-space: nowrap;
+user-select: none;
+animation: aparecer 0.5s ease-in-out forwards;
+letter-spacing: 0.625rem;
 }
-
 .infoAciertos
 {
-    left: 17%;
-    margin: auto;
-    margin-top:330px;
-    font-size: 40px;
-  font-family: 'Poor Richard', sans-serif;
-    position: absolute;
-    font-weight: bold;
-    color: #000000ad;
-    white-space: nowrap;
-    user-select: none;
-    animation: aparecer 0.5s ease-in-out forwards;
-    letter-spacing: 10px;
+left: 17%;
+margin: auto;
+margin-top: 45vh;
+font-size: 2.5rem;
+font-family: 'Poor Richard', sans-serif;
+position: absolute;
+font-weight: bold;
+color: #000000ad;
+white-space: nowrap;
+user-select: none;
+animation: aparecer 0.5s ease-in-out forwards;
+letter-spacing: 0.625rem;
 }
-
 .infoErrores
 {
-    left: 22%;
-    margin: auto + 20px;
-    margin-top:400px;
-    font-size: 40px;
-  font-family: 'Poor Richard', sans-serif;
-    position: absolute;
-    font-weight: bold;
-    color: #000000ad;
-    white-space: nowrap;
-    user-select: none;
-    animation: aparecer 0.5s ease-in-out forwards;
-    letter-spacing: 10px;
+left: 22%;
+margin: auto;
+margin-top: 55vh;
+font-size: 2.5rem;
+font-family: 'Poor Richard', sans-serif;
+position: absolute;
+font-weight: bold;
+color: #000000ad;
+white-space: nowrap;
+user-select: none;
+animation: aparecer 0.5s ease-in-out forwards;
+letter-spacing: 0.625rem;
 }
 .contenedorPrincipal img
 {
-    size: 80%;
+max-width: 80%;
+height: auto;
+}
+.enemigo {
+position: absolute;
+top: 8vh;
+left: 46vw;
+max-width: 30vw;
+}
+.enemigo img
+{
+transform: scale(1);
+max-width: 100%;
+height: auto;
+}
+.enemigo img.desaparecer
+{
+animation: desaparecer 1s ease-in-out forwards;
+}
+.jugador img.desaparecer
+{
+animation: desaparecer 1s ease-in-out forwards;
+}
+@keyframes desaparecer {
+0% { opacity: 1; }
+100% { opacity: 0; }
+}
+.jugador {
+position: absolute;
+top: 20vh;
+left: 0vw;
+max-width: 40vw;
+}
+.jugador img
+{
+transform: scale(0.8);
+max-width: 100%;
+height: auto;
+}
+.zonaPalabras {
+position: absolute;
+top: 1.5vh;
+left: 38vw;
+width: 53%;
+height: 40%;
+overflow: hidden;
+}
+.zonaPalabras .palabra
+{
+font-size: 1.5rem;
+font-family: 'Poor Richard', sans-serif;
+position: absolute;
+font-weight: bold;
+color: #262626a5;
+white-space: nowrap;
+user-select: none;
+opacity: 0;
+animation: aparecer 0.2s ease-in-out forwards;
+}
+@keyframes aparecer {
+0% { opacity: 0; transform: scale(0.9); color: #cb3333;}
+100% { opacity: 1; transform: scale(1); color: #262626e4;}
+}
+.zonaPalabras .palabraRoja
+{
+font-size: 1.5rem;
+font-family: 'Poor Richard', sans-serif;
+position: absolute;
+font-weight: bold;
+color: #cb3333;
+white-space: nowrap;
+user-select: none;
+}
+.barra-vida-contenedor {
+position: absolute;
+left: 65%;
+top: 94%;
+width: 20vw;
+height: 1.5vh;
+border: 0.15vh solid black;
+border-radius: 2vh;
+background-color: transparent;
+max-width: 250px;
+}
+.barra-vida {
+height: 100%;
+border-radius: 2vh;
+background-color: rgb(0, 0, 0);
+transition: width 0.3s ease;
+}
+.contador {
+margin-left: 1vw;
+margin-top: 0.5vh;
+font-size: 1.875rem;
+font-family: 'Poor Richard', sans-serif;
+font-weight: bold;
+}
+.titilar {
+color: black !important;
+}
+
+@media (max-width: 768px) {
+.contenedorPrincipal, .contenedorTutorial {
+width: 95vw;
+height: 70vh;
+}
+.zonaPalabras {
+    left: 48vw;
+    width: 50%;
 }
 
 .enemigo {
-  position: absolute;  
-  top: 7px;
-  left: 665px;
+    left: 50vw;
 }
 
-.enemigo img
-{
-    transform: scale(0.85);
+.botonMedieval {
+    font-size: 3.5rem;
 }
 
-.enemigo img.desaparecer
-{
-    animation: desaparecer 1s ease-in-out forwards;;
+.botonMedieval2 {
+    font-size: 2rem;
 }
 
-.jugador img.desaparecer
-{
-    animation: desaparecer 1s ease-in-out forwards;;
+.victoria {
+    font-size: 5rem;
+    letter-spacing: 0.4rem;
 }
 
-@keyframes desaparecer {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+.infoAciertos, .infoErrores {
+    font-size: 1.8rem;
+    letter-spacing: 0.3rem;
+}
+}
+@media (max-width: 480px) {
+.contenedorPrincipal, .contenedorTutorial {
+height: 60vh;
+}
+.zonaPalabras .palabra, .zonaPalabras .palabraRoja {
+    font-size: 1.2rem;
 }
 
-.jugador {
-  position: absolute;  
-  top: 150px;
-  left: 10px;
+.botonMedieval {
+    font-size: 2.5rem;
+    left: 15%;
 }
 
-.jugador img
-{
-    transform: scale(0.8);
+.victoria {
+    font-size: 4rem;
+    left: 5%;
 }
 
-.zonaPalabras {
-  position: absolute;  
-  top: 10px;
-  left: 625px;
-  width: 48%;
-  height: 35%;
-  overflow: hidden;
+.infoAciertos, .infoErrores {
+    font-size: 1.5rem;
 }
 
-.zonaPalabras .palabra 
-{
-    font-size: 25px;
-  font-family: 'Poor Richard', sans-serif;
-    position: absolute;
-    font-weight: bold;
-    color: #262626a5;
-    white-space: nowrap;
-    user-select: none;
-    opacity: 0;
-    animation: aparecer 0.2s ease-in-out forwards;
+.contenedorInstrucciones h2 {
+    font-size: 1rem;
 }
-
-@keyframes aparecer {
-  0% { opacity: 0; transform: scale(0.9); color: #cb3333;}
-  100% { opacity: 1; transform: scale(1); color: #262626e4;}
-}
-
-.zonaPalabras .palabraRoja
-{
-    font-size: 25px;
-  font-family: 'Poor Richard', sans-serif;
-    position: absolute;
-    font-weight: bold;
-    color: #cb3333;
-    white-space: nowrap;
-    user-select: none;
-}
-
-  
-.barra-vida-contenedor {
-    position: absolute;
-    left: 67%;
-    top:94%;
-    width: 250px;
-    height: 10px;
-    border: 1px solid black;
-    border-radius: 20px;
-    background-color: transparent
-}
-
-.barra-vida {
-  height: 100%;
-  border-radius: 20px;
-  background-color: rgb(0, 0, 0);
-  transition: width 0.3s ease;
-}
-
-.contador{
-    margin-left: 10px;
-    margin-top: 5px;
-  font-size: 30px;
-  font-family: 'Poor Richard', sans-serif;
-  font-weight: bold;
-}
-
-.titilar {
-    color: black !important;
 }
