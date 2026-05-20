@@ -1,6 +1,6 @@
 # SalaDeJuegos
 
-Proyecto desarrollado con Angular que reúne distintos minijuegos en una misma aplicación.
+Proyecto desarrollado con Angular que reúne distintos minijuegos en una misma aplicación. Realizado para la materia Programación 2 de la Tecnicatura en Programación (Universidad Tecnológica Nacional).
 
 ## Características
 
@@ -10,6 +10,7 @@ Proyecto desarrollado con Angular que reúne distintos minijuegos en una misma a
 - Diferentes modos de juego
 - Componentes reutilizables
 - Manejo básico de estados y sesiones
+- Juegos: Juego de typeo, ahorcado, mayor o menor, adivina el pokémon. 
 
 ## Tecnologías
 
